@@ -331,49 +331,226 @@ select.cx-st{padding:2px 6px;}
 .cx-rk-src .src{display:inline-flex;gap:6px;align-items:center;}
 .cx-rk-item.done .t{color:var(--color-ok);}
 .cx-rk-warn{font-size:var(--cds-font-size-caption);color:var(--color-bad);}
+
+/* ================= v3 theme: modern, sleek ================= */
+.cx{--cx-r:14px;--cx-r-sm:10px;--cx-line:color-mix(in srgb,var(--color-fg) 9%,transparent);--cx-soft:color-mix(in srgb,var(--color-fg) 4%,transparent);--cx-soft2:color-mix(in srgb,var(--color-fg) 7%,transparent);
+  --cx-shadow:0 1px 2px color-mix(in srgb,var(--color-fg) 5%,transparent),0 6px 20px color-mix(in srgb,var(--color-fg) 4%,transparent);
+  --cx-ok-bg:color-mix(in srgb,var(--color-ok) 11%,transparent);--cx-warn-bg:color-mix(in srgb,var(--color-warn) 12%,transparent);--cx-bad-bg:color-mix(in srgb,var(--color-bad) 10%,transparent);
+  max-width:1320px;letter-spacing:-.003em;}
+.cx h1,.cx h2,.cx h3,.cx h4{letter-spacing:-.01em;}
+/* app header */
+.cx-app{display:grid;gap:10px;padding:4px 0 var(--cds-pad-lg);}
+.cx-brand{display:flex;gap:14px;align-items:center;}
+.cx-logo{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--color-fg);color:var(--color-bg);flex:none;box-shadow:var(--cx-shadow);}
+.cx-eyebrow{font-size:11.5px;letter-spacing:.08em;}
+.cx-title{font-family:var(--font-anthropic-sans);font-weight:650;font-size:clamp(1.35rem,2.4vw,1.85rem);letter-spacing:-.02em;}
+.cx-app .cx-lede{max-width:72ch;}
+/* setup */
+.cx-setup{display:grid;gap:var(--cds-gap-md);margin-bottom:var(--cds-pad-lg);}
+.cx-setup-main{display:grid;gap:var(--cds-gap-md);grid-template-columns:minmax(0,1fr) minmax(14rem,18rem);}
+@media (max-width:760px){.cx-setup-main{grid-template-columns:1fr;}}
+.cx-setup-step{background:var(--color-panel);border:1px solid var(--cx-line);border-radius:var(--cx-r);padding:var(--cds-pad-lg);box-shadow:var(--cx-shadow);min-width:0;}
+.cx-step-lbl{font-size:12px;font-weight:600;color:var(--color-fg-muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px;}
+.cx-step-lbl .k{width:1.35rem;height:1.35rem;font-size:11px;}
+.cx-bigsel{width:100%;font-size:var(--cds-font-size-heading);font-weight:550;padding:11px 40px 11px 14px;}
+.cx-setup-date .cx-input{width:100%;font-size:var(--cds-font-size-heading);padding:9px 12px;}
+.cx-track{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:12px 0 4px;}
+.cx-track span{height:6px;border-radius:3px;background:var(--cx-soft2);position:relative;}
+.cx-track span.past{background:color-mix(in srgb,var(--color-fg) 35%,transparent);}
+.cx-track span.on{background:var(--color-fg);}
+.cx-track-lbl{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:10.5px;color:var(--color-fg-muted);font-variant-numeric:tabular-nums;}
+.cx-track-lbl span.on{color:var(--color-fg);font-weight:600;}
+.cx-stage-desc{margin:8px 0 0;}
+.cx-cond{padding:0;}
+.cx-cond>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:var(--cds-pad-md) var(--cds-pad-lg);}
+.cx-cond>summary::-webkit-details-marker{display:none;}
+.cx-cond[open]>summary{border-bottom:1px solid var(--cx-line);}
+.cx-cond>:not(summary){margin-inline:var(--cds-pad-lg);}
+.cx-cond>.cx-qgrid{margin-bottom:var(--cds-pad-lg);}
+.cx-cond>.cx-stage-desc{margin-top:var(--cds-pad-md);}
+.cx-cond-sum{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 20rem;min-width:0;}
+.cx-cond-toggle{margin-left:auto;font-size:var(--cds-font-size-caption);font-weight:600;padding:5px 12px;border-radius:999px;background:var(--cx-soft2);}
+.cx-cond-toggle .c{display:none;}
+.cx-cond[open] .cx-cond-toggle .o{display:none;}
+.cx-cond[open] .cx-cond-toggle .c{display:inline;}
+.cx-q{background:var(--cx-soft);border-radius:var(--cx-r-sm);padding:12px;border:1px solid transparent;}
+.cx-q.on{background:var(--cx-warn-bg);border-color:color-mix(in srgb,var(--color-warn) 25%,transparent);}
+.cx-q.on select{border-color:var(--cx-line);}
+/* sticky tabs + status bar */
+.cx-sticky{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--color-bg) 88%,transparent);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);margin:0 calc(-1 * var(--cds-pad-sm)) var(--cds-pad-lg);padding:8px var(--cds-pad-sm);border-bottom:1px solid var(--cx-line);display:grid;gap:8px;}
+.cx-tabs{position:static;border:0;margin:0;background:var(--cx-soft2);border-radius:12px;padding:4px;gap:2px;width:max-content;max-width:100%;}
+.cx-tab{display:inline-flex;align-items:center;gap:7px;border:0;border-radius:9px;padding:7px 13px;font-size:13.5px;font-weight:500;}
+.cx-tab svg{opacity:.75;}
+.cx-tab[aria-selected="true"]{background:var(--color-panel);box-shadow:0 1px 3px color-mix(in srgb,var(--color-fg) 12%,transparent);border:0;font-weight:600;}
+.cx-tab[aria-selected="true"] svg{opacity:1;}
+.cx-statusbar{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--color-fg-muted);align-items:center;}
+.cx-statusbar b{color:var(--color-fg);font-weight:600;font-variant-numeric:tabular-nums;}
+.cx-statusbar .sep{width:1px;height:12px;background:var(--cx-line);}
+.cx-statusbar .dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:1px;}
+/* cards */
+.cx-card{border:1px solid var(--cx-line);border-radius:var(--cx-r);box-shadow:var(--cx-shadow);padding:clamp(16px,2vw,24px);}
+.cx-card>header{margin-bottom:var(--cds-pad-lg);}
+.cx-sec-title{font-size:1.02rem;font-weight:650;}
+.cx-sec-note{font-size:12.5px;margin-top:4px;max-width:80ch;}
+.cx-page{gap:var(--cds-gap-md);}
+.cx-split{gap:var(--cds-gap-md);}
+/* hero */
+.cx-hero{display:grid;gap:var(--cds-gap-md);grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);}
+@media (max-width:900px){.cx-hero{grid-template-columns:1fr;}}
+.cx-hero-main{display:flex;gap:clamp(16px,3vw,32px);align-items:center;background:var(--color-fg);color:var(--color-bg);border-radius:var(--cx-r);padding:clamp(18px,2.6vw,30px);box-shadow:var(--cx-shadow);min-width:0;}
+.cx-hero-main .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;opacity:.65;font-weight:600;}
+.cx-hero-main .d{font-family:var(--font-anthropic-serif);font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.05;margin:6px 0 8px;font-variant-numeric:tabular-nums;}
+.cx-hero-main .s{font-size:13px;opacity:.75;line-height:1.5;}
+.cx-ring{flex:none;position:relative;width:118px;height:118px;}
+.cx-ring svg{display:block;transform:rotate(-90deg);}
+.cx-ring .t{position:absolute;inset:0;display:grid;place-items:center;text-align:center;line-height:1.1;}
+.cx-ring .t b{font-size:1.6rem;font-weight:650;font-variant-numeric:tabular-nums;display:block;}
+.cx-ring .t span{font-size:11px;opacity:.7;}
+.cx-hero-stats{display:grid;gap:var(--cds-gap-sm);grid-template-columns:repeat(2,minmax(0,1fr));}
+.cx-stat{background:var(--color-panel);border:1px solid var(--cx-line);border-radius:var(--cx-r);padding:14px 16px;box-shadow:var(--cx-shadow);display:grid;gap:2px;align-content:start;}
+.cx-stat .l{font-size:12px;color:var(--color-fg-muted);font-weight:500;}
+.cx-stat .v{font-size:1.65rem;font-weight:650;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.2;}
+.cx-stat .x{font-size:11.5px;color:var(--color-fg-muted);}
+.cx-stat.bad .v{color:var(--color-bad);} .cx-stat.ok .v{color:var(--color-ok);} .cx-stat.warn .v{color:var(--color-warn);}
+.cx-sum-lede{font-size:13.5px;max-width:none;margin:-2px 2px 0;}
+/* next steps */
+.cx-next{display:grid;gap:var(--cds-gap-sm);grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));}
+.cx-nx{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;padding:14px;border-radius:var(--cx-r-sm);background:var(--cx-soft);border:1px solid var(--cx-line);align-content:start;}
+.cx-nx .n{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--color-fg);color:var(--color-bg);font-weight:650;font-size:13px;}
+.cx-nx .t{font-weight:600;font-size:14px;line-height:1.35;}
+.cx-nx .m{font-size:12px;color:var(--color-fg-muted);line-height:1.45;}
+.cx-nx .a{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px;}
+/* need groups */
+.cx-need{gap:10px;}
+.cx-need-grp{border:1px solid var(--cx-line);border-radius:var(--cx-r-sm);background:var(--color-panel);overflow:hidden;}
+.cx-need-grp>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(5rem,9rem) auto;gap:12px;align-items:center;padding:12px 14px;}
+.cx-need-grp>summary::-webkit-details-marker{display:none;}
+.cx-need-grp>summary:hover{background:var(--cx-soft);}
+.cx-need-grp>summary .nm{font-weight:600;font-size:14px;}
+.cx-need-grp>summary .cnt{font-size:12px;color:var(--color-fg-muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.cx-need-grp>summary .bar{height:6px;border-radius:3px;background:var(--cx-soft2);overflow:hidden;}
+.cx-need-grp>summary .bar i{display:block;height:100%;background:var(--color-ok);border-radius:3px;}
+.cx-need-grp>summary .chev{transition:transform .2s;color:var(--color-fg-muted);}
+.cx-need-grp[open]>summary .chev{transform:rotate(90deg);}
+.cx-need-grp[open]>summary{border-bottom:1px solid var(--cx-line);}
+.cx-need-item{padding:12px 14px;border-top:1px solid var(--cx-line);grid-template-columns:minmax(7.5rem,auto) minmax(0,1fr);}
+.cx-need-grp .cx-need-item:first-of-type{border-top:0;}
+.cx-need-item .rk{font-size:12px;}
+/* status select pill */
+.cx select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%;background-size:5px 5px;background-repeat:no-repeat;padding-right:30px;cursor:pointer;}
+.cx-select,.cx-input{border-radius:var(--cx-r-sm);border:1px solid var(--cx-line);background-color:var(--color-panel);padding:8px 12px;transition:border-color .15s,box-shadow .15s;}
+.cx-select:hover,.cx-input:hover{border-color:color-mix(in srgb,var(--color-fg) 25%,transparent);}
+.cx-select:focus-visible,.cx-input:focus-visible,.cx-st:focus-visible,.cx-tab:focus-visible,.cx-btn:focus-visible{outline:2px solid color-mix(in srgb,var(--color-fg) 55%,transparent);outline-offset:2px;}
+select.cx-st{font-size:12px;font-weight:600;border-radius:999px;padding:4px 26px 4px 11px;background-position:calc(100% - 13px) 52%,calc(100% - 8.5px) 52%;background-size:4.5px 4.5px;border:1px solid var(--cx-line);background-color:var(--cx-soft);color:var(--color-fg-muted);}
+select.cx-st[data-st="Lengkap"]{background-color:var(--cx-ok-bg);color:var(--color-ok);border-color:transparent;}
+select.cx-st[data-st="Proses"]{background-color:var(--cx-warn-bg);color:var(--color-warn);border-color:transparent;}
+select.cx-st[data-st="Belum ada"]{background-color:var(--cx-bad-bg);color:var(--color-bad);border-color:transparent;}
+select.cx-st[data-st="Tidak berlaku"]{text-decoration:none;opacity:.7;}
+select.cx-st option{color:var(--color-fg);background:var(--color-panel);}
+/* chips & buttons */
+.cx-chip{border:0;background:var(--cx-soft2);color:var(--color-fg-muted);font-weight:500;padding:2px 9px;font-size:11.5px;}
+.cx-chip.wajib{background:color-mix(in srgb,var(--color-fg) 10%,transparent);color:var(--color-fg);}
+.cx-chip.kond{background:var(--cx-warn-bg);color:var(--color-warn);border:0;}
+.cx-chip.rkab,.cx-chip.ok{background:var(--cx-ok-bg);color:var(--color-ok);}
+.cx-chip.bad{background:var(--cx-bad-bg);color:var(--color-bad);}
+.cx-chip.warn{background:var(--cx-warn-bg);color:var(--color-warn);}
+.cx-btn{border-radius:999px;border:1px solid var(--cx-line);background:var(--color-panel);padding:5px 13px;font-weight:500;transition:background .15s,border-color .15s;}
+.cx-btn:hover{background:var(--cx-soft);}
+.cx-ready{border:0;border-radius:var(--cx-r-sm);background:var(--cx-soft);padding:12px 14px;font-size:13px;line-height:1.55;}
+.cx-ready.bad{background:var(--cx-bad-bg);}
+.cx-ready.ok{background:var(--cx-ok-bg);}
+/* risk */
+.cx-risk-item{padding:12px 0;border-color:var(--cx-line);}
+.cx-risk-item .h{font-weight:600;}
+.cx-lvl{display:inline-block;font-size:11px;font-weight:650;padding:2px 8px;border-radius:6px;height:max-content;}
+.cx-lvl.Kritis{background:var(--cx-bad-bg);}
+.cx-lvl.Tinggi{background:var(--cx-warn-bg);}
+.cx-lvl.Sedang{background:var(--cx-soft2);}
+.cx-gate{border-color:var(--cx-line);}
+.cx-gate-ico{border-radius:9px;}
+/* tables */
+.cx-tablebox{border:1px solid var(--cx-line);border-radius:var(--cx-r-sm);}
+.cx-table th{background:color-mix(in srgb,var(--color-panel) 92%,transparent);backdrop-filter:blur(6px);font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:11px;padding:10px 12px;}
+.cx-table td{padding:11px 12px;border-color:var(--cx-line);}
+.cx-table tbody tr:last-child td{border-bottom:0;}
+.cx-table tbody tr.sel td{background:var(--cx-soft2);}
+.cx-table tbody tr.sel td:first-child{box-shadow:inset 3px 0 0 var(--color-fg);}
+/* misc */
+.cx-detail{top:7.5rem;}
+.cx-detail h3{font-family:var(--font-anthropic-sans);font-weight:650;font-size:1.25rem;letter-spacing:-.015em;}
+.cx-prog-bar{height:8px;border-radius:4px;background:var(--cx-soft2);}
+.cx-asp,.cx-sy,.cx-step,.cx-lad{border-color:var(--cx-line);border-radius:var(--cx-r-sm);background:var(--cx-soft);}
+.cx-asp:hover{background:var(--cx-soft2);}
+.cx-asp.ok{background:var(--cx-ok-bg);border-color:transparent;}
+.cx-asp.bad{border-color:color-mix(in srgb,var(--color-bad) 30%,transparent);}
+.cx-rk-item{border-color:var(--cx-line);}
+.cx-g-bar{border-radius:6px;}
+.cx-foot{border-color:var(--cx-line);}
+@media (max-width:640px){.cx-tab span{display:none;}.cx-tab{padding:8px 11px;}.cx-tab[aria-selected="true"] span{display:inline;}}
 </style>
 
 <div class="cx">
-  <header class="cx-head" id="top">
-    <div class="cx-eyebrow">Compliance · Pertambangan batubara</div>
-    <h1 class="cx-title">Compliance Perizinan Tambang Batubara</h1>
-    <p class="cx-lede">Pilih tahap kegiatan yang akan dilakukan perusahaan dan karakteristik lokasinya. Ringkasan, checklist, dan timeline akan menyesuaikan: izin apa yang harus dilengkapi, risiko hukum bila belum ada, dan kapan perusahaan realistis siap memulai.</p>
+  <header class="cx-app" id="top">
+    <div class="cx-brand">
+      <span class="cx-logo" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+      <div>
+        <div class="cx-eyebrow">Compliance · Pertambangan batubara</div>
+        <h1 class="cx-title">Compliance Perizinan Tambang Batubara</h1>
+      </div>
+    </div>
+    <p class="cx-lede">Pilih tahap kegiatan dan jawab beberapa pertanyaan singkat. Dashboard menunjukkan izin yang harus dilengkapi, risikonya bila belum ada, dan kapan Anda realistis siap memulai.</p>
   </header>
 
-  <section class="cx-card cx-profile" id="profil" aria-label="Profil kegiatan">
-    <div>
-      <p class="cx-step-lbl"><span class="k">1</span>Tahap kegiatan yang akan dilakukan</p>
-      <div class="cx-stagebox"><select class="cx-select cx-bigsel" id="stage" aria-label="Tahap kegiatan" data-source="tahap"></select></div>
-      <p class="cx-stage-desc" id="stage-desc" data-source="tahap izin"></p>
+  <section class="cx-setup" id="profil" aria-label="Profil kegiatan">
+    <div class="cx-setup-main">
+      <div class="cx-setup-step">
+        <p class="cx-step-lbl"><span class="k">1</span>Tahap kegiatan</p>
+        <select class="cx-select cx-bigsel" id="stage" aria-label="Tahap kegiatan" data-source="tahap"></select>
+        <div class="cx-track" id="stage-track" aria-hidden="true"></div>
+        <p class="cx-stage-desc" id="stage-desc" data-source="tahap izin"></p>
+      </div>
+      <div class="cx-setup-step cx-setup-date">
+        <p class="cx-step-lbl"><span class="k">3</span>Mulai pengajuan</p>
+        <input class="cx-input" id="start" type="date" min="2020-01-01" max="2035-12-31" aria-label="Tanggal mulai pengajuan">
+        <p class="cx-stage-desc">Dasar perhitungan timeline.</p>
+      </div>
     </div>
-    <div>
-      <p class="cx-step-lbl"><span class="k">2</span>Karakteristik kegiatan — menentukan izin kondisional sesuai regulasi yang berlaku</p>
+    <details class="cx-setup-step cx-cond" id="cond-box">
+      <summary>
+        <p class="cx-step-lbl" style="margin:0"><span class="k">2</span>Karakteristik kegiatan</p>
+        <span class="cx-cond-sum" id="cond-sum"></span>
+        <span class="cx-cond-toggle"><span class="o">Ubah</span><span class="c">Tutup</span></span>
+      </summary>
+      <p class="cx-stage-desc" style="margin:0 0 var(--cds-pad-md)">Tiap jawaban menentukan izin kondisional menurut regulasi yang berlaku. Dasar hukumnya tampil di bawah pilihan.</p>
       <div class="cx-qgrid" id="conds" data-source="kondisi"></div>
-      <div id="cond-warn"></div>
-    </div>
-    <div class="cx-date">
-      <p class="cx-step-lbl"><span class="k">3</span>Tanggal mulai pengajuan dokumen</p>
-      <input class="cx-input" id="start" type="date" min="2020-01-01" max="2035-12-31" aria-label="Tanggal mulai pengajuan" style="max-width:14rem">
-    </div>
+    </details>
+    <div id="cond-warn"></div>
   </section>
 
-  <nav class="cx-tabs" role="tablist" aria-label="Bagian dashboard">
-    <button class="cx-tab" role="tab" id="tab-ringkasan" data-page="ringkasan" aria-selected="true">Ringkasan</button>
-    <button class="cx-tab" role="tab" id="tab-checklist" data-page="checklist" aria-selected="false">Checklist izin</button>
-    <button class="cx-tab" role="tab" id="tab-timeline" data-page="timeline" aria-selected="false">Timeline compliance</button>
-    <button class="cx-tab" role="tab" id="tab-peta" data-page="peta" aria-selected="false">Peta keterkaitan</button>
-    <button class="cx-tab" role="tab" id="tab-rkab" data-page="rkab" aria-selected="false">Prasyarat RKAB</button>
-    <button class="cx-tab" role="tab" id="tab-kalender" data-page="kalender" aria-selected="false">Kalender kepatuhan</button>
-    <button class="cx-tab" role="tab" id="tab-regulasi" data-page="regulasi" aria-selected="false">Regulasi</button>
-  </nav>
+  <div class="cx-sticky">
+    <nav class="cx-tabs" role="tablist" aria-label="Bagian dashboard">
+      <button class="cx-tab" role="tab" id="tab-ringkasan" data-page="ringkasan" aria-selected="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span>Ringkasan</span></button>
+      <button class="cx-tab" role="tab" id="tab-checklist" data-page="checklist" aria-selected="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.5 1.5L7.5 5M3.5 12l1.5 1.5L7.5 11M3.5 18l1.5 1.5L7.5 17"/></svg><span>Checklist izin</span></button>
+      <button class="cx-tab" role="tab" id="tab-timeline" data-page="timeline" aria-selected="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h9M7 12h11M5 18h7"/><circle cx="4" cy="6" r=".5"/></svg><span>Timeline</span></button>
+      <button class="cx-tab" role="tab" id="tab-peta" data-page="peta" aria-selected="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M8 7.5l3 8.5M16 7.5l-3 8.5M8.5 6h7"/></svg><span>Keterkaitan</span></button>
+      <button class="cx-tab" role="tab" id="tab-rkab" data-page="rkab" aria-selected="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg><span>Dokumen RKAB</span></button>
+      <button class="cx-tab" role="tab" id="tab-kalender" data-page="kalender" aria-selected="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Kalender</span></button>
+      <button class="cx-tab" role="tab" id="tab-regulasi" data-page="regulasi" aria-selected="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 8h14M5 8l-2.5 6a3 3 0 005 0zM19 8l-2.5 6a3 3 0 005 0zM8 21h8"/></svg><span>Regulasi</span></button>
+    </nav>
+    <div class="cx-statusbar" id="statusbar" data-source="izin tahap"></div>
+  </div>
 
   <!-- RINGKASAN -->
   <section class="cx-page" id="ringkasan" role="tabpanel" aria-labelledby="tab-ringkasan">
-    <p class="cx-lede" id="sum-lede" data-source="izin tahap" style="color:var(--color-fg)"></p>
-    <div class="cx-kpis" id="kpis" data-source="izin sanksi"></div>
+    <div class="cx-hero" id="kpis" data-source="izin sanksi"></div>
+    <p class="cx-lede cx-sum-lede" id="sum-lede" data-source="izin tahap"></p>
+    <article class="cx-card" id="card-next">
+      <header><h2 class="cx-sec-title">Langkah berikutnya</h2><p class="cx-sec-note">Izin yang sudah bisa diurus sekarang karena prasyaratnya terpenuhi, diurutkan dari yang paling menentukan jadwal.</p></header>
+      <div class="cx-next" id="next" data-source="izin relasi"></div>
+    </article>
     <div class="cx-split">
       <article class="cx-card" id="card-need">
-        <header><h2 class="cx-sec-title">Yang harus dilengkapi</h2><p class="cx-sec-note">Izin dan dokumen untuk tahap terpilih, per lapis. Garis merah di bawah tiap izin adalah konsekuensi bila belum dimiliki. Klik nama untuk detail; ubah status di tab Checklist.</p></header>
+        <header><h2 class="cx-sec-title">Yang harus dilengkapi</h2><p class="cx-sec-note">Per lapis perizinan. Teks merah di bawah izin adalah konsekuensinya bila belum dimiliki. Ubah status langsung dari daftar ini.</p></header>
         <div class="cx-need" id="need" data-source="izin sanksi"></div>
       </article>
       <div style="display:grid;gap:var(--cds-gap-md);align-content:start">
