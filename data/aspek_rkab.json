@@ -1,0 +1,50 @@
+[
+ {
+  "id": "A1",
+  "urut": 1,
+  "aspek": "Administrasi",
+  "cek": "Izin terdaftar di basis data Ditjen Minerba (MODI/MinerbaOne); data OSS sinkron."
+ },
+ {
+  "id": "A2",
+  "urut": 2,
+  "aspek": "Eksplorasi, sumber daya & cadangan",
+  "cek": "Studi kelayakan disetujui dengan estimasi Competent Person; sisa cadangan cukup; PPKH eksplorasi lanjutan & peta kawasan hutan."
+ },
+ {
+  "id": "A3",
+  "urut": 3,
+  "aspek": "Produksi penambangan",
+  "cek": "Rencana produksi tidak melebihi batas tertinggi di studi kelayakan, dokumen lingkungan, dan ketersediaan cadangan."
+ },
+ {
+  "id": "A4",
+  "urut": 4,
+  "aspek": "Penimbunan OB",
+  "cek": "Lokasi penimbunan tercantum dalam studi kelayakan dan/atau dokumen lingkungan."
+ },
+ {
+  "id": "A6",
+  "urut": 5,
+  "aspek": "Keselamatan pertambangan",
+  "cek": "KTT, KTT Sementara, atau PjS KTT sudah disahkan dan masih berlaku."
+ },
+ {
+  "id": "A7",
+  "urut": 6,
+  "aspek": "Lingkungan",
+  "cek": "Bukti penempatan jaminan reklamasi tahun N-1 sesuai rencana reklamasi yang disetujui."
+ },
+ {
+  "id": "A8",
+  "urut": 7,
+  "aspek": "Keuangan",
+  "cek": "Net profit margin positif (dengan pengecualian tertentu); IUP & komoditas tidak dijaminkan."
+ },
+ {
+  "id": "A9",
+  "urut": 8,
+  "aspek": "Kewajiban PNBP",
+  "cek": "Tidak ada piutang PNBP macet, atau sudah ada persetujuan angsuran."
+ }
+]

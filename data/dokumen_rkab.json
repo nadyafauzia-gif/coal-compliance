@@ -1,0 +1,262 @@
+[
+ {
+  "id": "D01",
+  "urut": 1,
+  "matrik": "Matrik 1 · Legalitas",
+  "dokumen": "Identitas & legalitas izin",
+  "isi": "Identitas perusahaan, NPWP, nomor SK IUP, kode WIUP, golongan, dan jangka waktu izin; data harus sama dengan OSS dan MODI/MinerbaOne.",
+  "izin": "I01,I02,I04",
+  "aspek": "A1",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D02",
+  "urut": 2,
+  "matrik": "Matrik 1 · Legalitas",
+  "dokumen": "Pengesahan Kepala Teknik Tambang",
+  "isi": "Nomor dan tanggal surat pengesahan KTT (atau KTT Sementara/PjS KTT) yang masih berlaku.",
+  "izin": "I07",
+  "aspek": "A6",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D03",
+  "urut": 3,
+  "matrik": "Matrik 1 · Legalitas",
+  "dokumen": "Persetujuan dokumen lingkungan",
+  "isi": "Nomor persetujuan lingkungan beserta kapasitas produksi tertinggi yang tercantum.",
+  "izin": "I16",
+  "aspek": "A3",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D04",
+  "urut": 4,
+  "matrik": "Matrik 1 · Legalitas",
+  "dokumen": "Persetujuan studi kelayakan",
+  "isi": "Nomor persetujuan studi kelayakan beserta kapasitas produksi tertinggi tambang.",
+  "izin": "I06",
+  "aspek": "A2",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D05",
+  "urut": 5,
+  "matrik": "Matrik 1 · Legalitas",
+  "dokumen": "Luas wilayah per kategori kawasan hutan",
+  "isi": "Luas WIUP pada hutan konservasi, hutan lindung, hutan produksi, dan bukan kawasan hutan.",
+  "izin": "I02",
+  "aspek": "A2",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D06",
+  "urut": 6,
+  "matrik": "Matrik 1 · Legalitas",
+  "dokumen": "PPKH operasi produksi & eksplorasi lanjutan",
+  "isi": "Nomor PPKH dan status pelaksanaan di kawasan hutan; bila masih diurus, nomor surat korespondensi dengan Kementerian Kehutanan.",
+  "izin": "I21",
+  "aspek": "A2",
+  "kondisi_key": "hutan"
+ },
+ {
+  "id": "D07",
+  "urut": 7,
+  "matrik": "Matrik 2 · Eksplorasi",
+  "dokumen": "Rencana kegiatan & biaya eksplorasi lanjutan",
+  "isi": "Pengembangan sumber daya (di luar area tambang) dan verifikasi cadangan (di dalam area tambang): pengeboran, sumur/parit uji, analisis conto, geoteknik, geofisika, hidrologi & hidrogeologi.",
+  "izin": "I05",
+  "aspek": "A2",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D08",
+  "urut": 8,
+  "matrik": "Matrik 3 · Sumber daya & cadangan",
+  "dokumen": "Neraca sumber daya & cadangan per seam",
+  "isi": "Sumber daya tereka/tertunjuk/terukur dan cadangan terkira/terbukti per seam, dengan kualitas (CV, FC, TM, IM, TS, abu, VM, HGI, RD, CSN).",
+  "izin": "I05",
+  "aspek": "A2",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D09",
+  "urut": 9,
+  "matrik": "Matrik 3 · Sumber daya & cadangan",
+  "dokumen": "Sisa cadangan & nama Competent Person",
+  "isi": "Sisa cadangan = cadangan − realisasi produksi kumulatif; nama Competent Person dan laporan estimasinya.",
+  "izin": "I05",
+  "aspek": "A2",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D10",
+  "urut": 10,
+  "matrik": "Matrik 4 · Penimbunan OB",
+  "dokumen": "Rencana penimbunan overburden tahun N",
+  "isi": "Lokasi in-pit/out-pit dan volume (LCM) yang tercantum dalam studi kelayakan dan/atau dokumen lingkungan.",
+  "izin": "I06,I16",
+  "aspek": "A4",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D11",
+  "urut": 11,
+  "matrik": "Matrik 4 · Penimbunan OB",
+  "dokumen": "Peta overlay penimbunan OB",
+  "isi": "Overlay batas penimbunan final, WIUP, kawasan hutan, dan PPKH; skala 1:10.000, berlegenda, format PDF.",
+  "izin": "I10",
+  "aspek": "A4",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D12",
+  "urut": 12,
+  "matrik": "Matrik 5 · Penambangan",
+  "dokumen": "Rencana & realisasi produksi per blok/pit",
+  "isi": "Produksi batubara (ton), overburden (BCM), dan stripping ratio: rencana & realisasi N-1 serta rencana N.",
+  "izin": "I06,I30",
+  "aspek": "A3",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D13",
+  "urut": 13,
+  "matrik": "Matrik 5 · Penambangan",
+  "dokumen": "Peta digital penambangan & bukaan lahan",
+  "isi": "Peta realisasi & rencana eksplorasi lanjutan, penambangan, dan bukaan lahan (Permen 17/2025 Pasal 5).",
+  "izin": "I10",
+  "aspek": "A3",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D14",
+  "urut": 14,
+  "matrik": "Matrik 7 · Pemasaran",
+  "dokumen": "Rencana & realisasi pemasaran",
+  "isi": "Volume penjualan domestik dan ekspor; perkiraan produksi sesuai kebutuhan pasar nasional.",
+  "izin": "I33",
+  "aspek": "A3",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D15",
+  "urut": 15,
+  "matrik": "Matrik 7 · Pemasaran",
+  "dokumen": "Rencana pemenuhan DMO",
+  "isi": "Rencana DMO per jenis industri tujuan (kelistrikan umum, semen, pupuk, smelter, dll.).",
+  "izin": "I33",
+  "aspek": "A3",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D16",
+  "urut": 16,
+  "matrik": "Matrik 8 · Bahan peledak",
+  "dokumen": "Rencana penggunaan bahan peledak",
+  "isi": "Parameter peledakan OB & batubara per semester; bahan ramuan, bahan peledak, aksesoris, dan detonator.",
+  "izin": "I13",
+  "aspek": "A6",
+  "kondisi_key": "peledakan"
+ },
+ {
+  "id": "D17",
+  "urut": 17,
+  "matrik": "Matrik 9 · Keuangan",
+  "dokumen": "Laporan laba rugi",
+  "isi": "Penjualan, harga jual, royalti/DHPB, HPP, biaya operasi, pajak, dan laba bersih; net profit margin positif.",
+  "izin": "I27,I24",
+  "aspek": "A8",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D18",
+  "urut": 18,
+  "matrik": "Matrik 10 · Pernyataan",
+  "dokumen": "Komitmen KTT: K3, keselamatan operasi & SMKP",
+  "isi": "Termasuk komitmen bahan peledak dan penimbunan BBM cair bila relevan.",
+  "izin": "I07,I12",
+  "aspek": "A6",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D19",
+  "urut": 19,
+  "matrik": "Matrik 10 · Pernyataan",
+  "dokumen": "Komitmen penyelesaian piutang PNBP",
+  "isi": "Tidak ada piutang macet, atau sudah ada persetujuan angsuran.",
+  "izin": "I24",
+  "aspek": "A9",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D20",
+  "urut": 20,
+  "matrik": "Matrik 10 · Pernyataan",
+  "dokumen": "Pernyataan tidak menjaminkan IUP & komoditas",
+  "isi": "Pendanaan pinjaman tidak boleh menjaminkan IUP/IUPK atau batubaranya.",
+  "izin": "I04",
+  "aspek": "A8",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D21",
+  "urut": 21,
+  "matrik": "Matrik 10 · Pernyataan",
+  "dokumen": "Pernyataan penggunaan jasa pertambangan",
+  "isi": "Daftar kontraktor beserta IUJP-nya; afiliasi wajib persetujuan Menteri.",
+  "izin": "I29,I35",
+  "aspek": "A1",
+  "kondisi_key": "kontraktor"
+ },
+ {
+  "id": "D22",
+  "urut": 22,
+  "matrik": "Matrik 10 · Pernyataan",
+  "dokumen": "Pernyataan pelaksanaan kegiatan di kawasan hutan",
+  "isi": "Komitmen hanya berkegiatan di areal PPKH.",
+  "izin": "I21",
+  "aspek": "A2",
+  "kondisi_key": "hutan"
+ },
+ {
+  "id": "D23",
+  "urut": 23,
+  "matrik": "Matrik 10 · Pernyataan",
+  "dokumen": "Pernyataan PPM sesuai RIPPM",
+  "isi": "Rencana biaya PPM per bidang untuk ring 1, 2, dan 3.",
+  "izin": "",
+  "aspek": "A1",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D24",
+  "urut": 24,
+  "matrik": "Persyaratan Pasal 5",
+  "dokumen": "Bukti penempatan jaminan reklamasi tahun N-1",
+  "isi": "Deposito berjangka sesuai rencana reklamasi yang disetujui.",
+  "izin": "I25,I08",
+  "aspek": "A7",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D25",
+  "urut": 25,
+  "matrik": "Persyaratan Pasal 5",
+  "dokumen": "Bukti pembayaran PNBP SDA",
+  "isi": "Iuran tetap & royalti lunas.",
+  "izin": "I24",
+  "aspek": "A9",
+  "kondisi_key": ""
+ },
+ {
+  "id": "D26",
+  "urut": 26,
+  "matrik": "Lampiran persetujuan",
+  "dokumen": "Penimbunan BBM cair & fasilitas impor",
+  "isi": "Lampiran persetujuan RKAB untuk tangki BBM dan impor/re-ekspor barang.",
+  "izin": "I14",
+  "aspek": "A6",
+  "kondisi_key": "bbm"
+ }
+]

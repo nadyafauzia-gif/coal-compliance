@@ -1,0 +1,58 @@
+[
+ {
+  "no": 1,
+  "syarat": "Persyaratan administratif (ditarik otomatis dari OSS)",
+  "pasal": "Pasal 5 ayat (1) huruf b angka 1 & ayat (2)",
+  "izin": "I01,I04",
+  "cek": "Data badan usaha, pengurus, dan IUP di OSS harus mutakhir dan sinkron."
+ },
+ {
+  "no": 2,
+  "syarat": "Laporan estimasi sumber daya & cadangan oleh Competent Person",
+  "pasal": "Pasal 5 ayat (1) huruf b angka 2",
+  "izin": "I05",
+  "cek": "Cadangan mencukupi rencana produksi tahun yang diajukan."
+ },
+ {
+  "no": 3,
+  "syarat": "Bukti pembayaran PNBP sumber daya alam batubara",
+  "pasal": "Pasal 5 ayat (1) huruf b angka 3",
+  "izin": "I24",
+  "cek": "Iuran tetap & royalti lunas, tanpa tunggakan."
+ },
+ {
+  "no": 4,
+  "syarat": "Peta digital: eksplorasi lanjutan, penambangan, bukaan lahan, kawasan hutan",
+  "pasal": "Pasal 5 ayat (1) huruf b angka 4",
+  "izin": "I10,I21",
+  "cek": "Realisasi dan rencana berada dalam WIUP, studi kelayakan, dokumen lingkungan, dan areal PPKH."
+ },
+ {
+  "no": 5,
+  "syarat": "Memiliki Kepala Teknik Tambang",
+  "pasal": "Pasal 5 ayat (1) huruf b angka 5",
+  "izin": "I07",
+  "cek": "KTT disahkan Kepala Inspektur Tambang dan masih menjabat."
+ },
+ {
+  "no": 6,
+  "syarat": "Bukti penempatan jaminan reklamasi OP untuk 1 tahun sebelum tahun permohonan",
+  "pasal": "Pasal 5 ayat (1) huruf b angka 6",
+  "izin": "I25,I08",
+  "cek": "Deposito berjangka sesuai penetapan besaran jaminan."
+ },
+ {
+  "no": 7,
+  "syarat": "Tingkat produksi & lokasi tidak melebihi kapasitas maksimum di studi kelayakan & izin lingkungan",
+  "pasal": "Pasal 5 ayat (1) huruf b angka 7",
+  "izin": "I06,I16",
+  "cek": "Tonase rencana ≤ kapasitas maksimum di kedua dokumen."
+ },
+ {
+  "no": 8,
+  "syarat": "Rencana lokasi penambangan sesuai studi kelayakan & izin lingkungan",
+  "pasal": "Pasal 5 ayat (1) huruf b angka 8",
+  "izin": "I06,I16",
+  "cek": "Pit dan disposal tahun berjalan berada dalam batas yang disetujui."
+ }
+]

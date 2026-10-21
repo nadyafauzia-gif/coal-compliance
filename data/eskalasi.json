@@ -1,0 +1,52 @@
+[
+ {
+  "id": "E1",
+  "urut": 1,
+  "tahap": "Peringatan tertulis",
+  "durasi_hari": 30,
+  "kali": 3,
+  "jalur": "Bertingkat",
+  "dasar": "Permen ESDM 17/2025 Pasal 26",
+  "keterangan": "Paling banyak 3 kali, masing-masing 30 hari kalender."
+ },
+ {
+  "id": "E2",
+  "urut": 2,
+  "tahap": "Penghentian sementara",
+  "durasi_hari": 60,
+  "kali": 1,
+  "jalur": "Bertingkat",
+  "dasar": "Permen ESDM 17/2025 Pasal 27",
+  "keterangan": "Sebagian atau seluruh kegiatan, paling lama 60 hari kalender sejak peringatan berakhir."
+ },
+ {
+  "id": "E3",
+  "urut": 3,
+  "tahap": "Pencabutan izin",
+  "durasi_hari": null,
+  "kali": 1,
+  "jalur": "Bertingkat",
+  "dasar": "Permen ESDM 17/2025 Pasal 28",
+  "keterangan": "Bila kewajiban tetap tidak dipenuhi sampai penghentian sementara berakhir."
+ },
+ {
+  "id": "E4",
+  "urut": 4,
+  "tahap": "Pencabutan langsung",
+  "durasi_hari": null,
+  "kali": 1,
+  "jalur": "Pintas",
+  "dasar": "Permen ESDM 17/2025 Pasal 29",
+  "keterangan": "Dokumen RKAB tidak sah, menambang/menjual tanpa RKAB, atau menyalahgunakan persetujuan RKAB."
+ },
+ {
+  "id": "E5",
+  "urut": 5,
+  "tahap": "Penghentian langsung + potong kuota",
+  "durasi_hari": null,
+  "kali": 1,
+  "jalur": "Pintas",
+  "dasar": "Permen ESDM 17/2025 Pasal 30",
+  "keterangan": "Produksi melebihi RKAB: berhenti selama tahun berjalan dan kuota berikutnya dipotong."
+ }
+]

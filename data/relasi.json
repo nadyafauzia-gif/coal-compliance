@@ -1,0 +1,436 @@
+[
+ {
+  "dari": "I01",
+  "ke": "I02",
+  "jenis": "prasyarat",
+  "keterangan": "Badan usaha dan NIB menjadi subjek pemegang WIUP.",
+  "id": "I01-I02"
+ },
+ {
+  "dari": "I02",
+  "ke": "I03",
+  "jenis": "prasyarat",
+  "keterangan": "IUP Eksplorasi diberikan atas WIUP yang sah.",
+  "id": "I02-I03"
+ },
+ {
+  "dari": "I02",
+  "ke": "I15",
+  "jenis": "prasyarat",
+  "keterangan": "Koordinat WIUP diuji kesesuaiannya dengan tata ruang.",
+  "id": "I02-I15"
+ },
+ {
+  "dari": "I02",
+  "ke": "I11",
+  "jenis": "turunan",
+  "keterangan": "Batas WIUP wajib dipasang patok di lapangan.",
+  "id": "I02-I11"
+ },
+ {
+  "dari": "I03",
+  "ke": "I05",
+  "jenis": "turunan",
+  "keterangan": "Kegiatan eksplorasi menghasilkan laporan sumber daya dan cadangan.",
+  "id": "I03-I05"
+ },
+ {
+  "dari": "I03",
+  "ke": "I09",
+  "jenis": "turunan",
+  "keterangan": "Rencana pascatambang disusun sejak tahap eksplorasi.",
+  "id": "I03-I09"
+ },
+ {
+  "dari": "I05",
+  "ke": "I06",
+  "jenis": "prasyarat",
+  "keterangan": "Studi kelayakan dihitung dari cadangan yang dilaporkan Competent Person.",
+  "id": "I05-I06"
+ },
+ {
+  "dari": "I15",
+  "ke": "I16",
+  "jenis": "prasyarat",
+  "keterangan": "Dokumen lingkungan hanya dinilai bila lokasi sesuai tata ruang.",
+  "id": "I15-I16"
+ },
+ {
+  "dari": "I06",
+  "ke": "I16",
+  "jenis": "mengikat",
+  "keterangan": "Kapasitas produksi dan lokasi tambang harus identik di studi kelayakan dan dokumen lingkungan.",
+  "id": "I06-I16"
+ },
+ {
+  "dari": "I06",
+  "ke": "I08",
+  "jenis": "prasyarat",
+  "keterangan": "Rencana reklamasi mengikuti rencana tambang dalam studi kelayakan.",
+  "id": "I06-I08"
+ },
+ {
+  "dari": "I16",
+  "ke": "I08",
+  "jenis": "mengikat",
+  "keterangan": "Bentuk dan lokasi reklamasi wajib termuat dalam dokumen lingkungan.",
+  "id": "I16-I08"
+ },
+ {
+  "dari": "I06",
+  "ke": "I09",
+  "jenis": "prasyarat",
+  "keterangan": "Rona akhir pascatambang mengikuti studi kelayakan.",
+  "id": "I06-I09"
+ },
+ {
+  "dari": "I16",
+  "ke": "I09",
+  "jenis": "prasyarat",
+  "keterangan": "Program pascatambang selaras dengan RKL-RPL.",
+  "id": "I16-I09"
+ },
+ {
+  "dari": "I06",
+  "ke": "I04",
+  "jenis": "prasyarat",
+  "keterangan": "Studi kelayakan yang disetujui adalah syarat teknis IUP OP.",
+  "id": "I06-I04"
+ },
+ {
+  "dari": "I16",
+  "ke": "I04",
+  "jenis": "prasyarat",
+  "keterangan": "Persetujuan lingkungan adalah syarat lingkungan IUP OP.",
+  "id": "I16-I04"
+ },
+ {
+  "dari": "I09",
+  "ke": "I04",
+  "jenis": "prasyarat",
+  "keterangan": "Rencana pascatambang adalah syarat IUP OP.",
+  "id": "I09-I04"
+ },
+ {
+  "dari": "I27",
+  "ke": "I04",
+  "jenis": "prasyarat",
+  "keterangan": "Laporan keuangan diaudit adalah syarat finansial IUP OP.",
+  "id": "I27-I04"
+ },
+ {
+  "dari": "I04",
+  "ke": "I08",
+  "jenis": "turunan",
+  "keterangan": "Rencana reklamasi OP diajukan paling lambat 45 hari kerja setelah IUP OP.",
+  "id": "I04-I08"
+ },
+ {
+  "dari": "I08",
+  "ke": "I25",
+  "jenis": "turunan",
+  "keterangan": "Besaran jaminan reklamasi ditetapkan dari rencana reklamasi yang disetujui.",
+  "id": "I08-I25"
+ },
+ {
+  "dari": "I09",
+  "ke": "I26",
+  "jenis": "turunan",
+  "keterangan": "Besaran jaminan pascatambang ditetapkan dari rencana pascatambang.",
+  "id": "I09-I26"
+ },
+ {
+  "dari": "I03",
+  "ke": "I07",
+  "jenis": "prasyarat",
+  "keterangan": "KTT disahkan untuk pemegang IUP sebelum kegiatan lapangan.",
+  "id": "I03-I07"
+ },
+ {
+  "dari": "I07",
+  "ke": "I12",
+  "jenis": "turunan",
+  "keterangan": "KTT memimpin penerapan SMKP.",
+  "id": "I07-I12"
+ },
+ {
+  "dari": "I04",
+  "ke": "I21",
+  "jenis": "prasyarat",
+  "keterangan": "PPKH untuk pertambangan diajukan oleh pemegang IUP.",
+  "id": "I04-I21"
+ },
+ {
+  "dari": "I16",
+  "ke": "I21",
+  "jenis": "prasyarat",
+  "keterangan": "PPKH mensyaratkan persetujuan lingkungan.",
+  "id": "I16-I21"
+ },
+ {
+  "dari": "I04",
+  "ke": "I22",
+  "jenis": "turunan",
+  "keterangan": "Hak atas tanah diselesaikan sebelum membuka bidang tanah.",
+  "id": "I04-I22"
+ },
+ {
+  "dari": "I04",
+  "ke": "I24",
+  "jenis": "turunan",
+  "keterangan": "IUP menimbulkan kewajiban iuran tetap dan royalti.",
+  "id": "I04-I24"
+ },
+ {
+  "dari": "I16",
+  "ke": "I17",
+  "jenis": "turunan",
+  "keterangan": "Pertek air limbah mengikuti dokumen lingkungan.",
+  "id": "I16-I17"
+ },
+ {
+  "dari": "I16",
+  "ke": "I18",
+  "jenis": "turunan",
+  "keterangan": "Pengelolaan limbah B3 mengikuti dokumen lingkungan.",
+  "id": "I16-I18"
+ },
+ {
+  "dari": "I16",
+  "ke": "I19",
+  "jenis": "prasyarat",
+  "keterangan": "Penggunaan air harus tercakup dalam dokumen lingkungan.",
+  "id": "I16-I19"
+ },
+ {
+  "dari": "I15",
+  "ke": "I20",
+  "jenis": "prasyarat",
+  "keterangan": "Jalur hauling harus sesuai tata ruang.",
+  "id": "I15-I20"
+ },
+ {
+  "dari": "I21",
+  "ke": "I10",
+  "jenis": "mengikat",
+  "keterangan": "Peta kawasan hutan di RKAB harus sama dengan peta PPKH.",
+  "id": "I21-I10"
+ },
+ {
+  "dari": "I06",
+  "ke": "I10",
+  "jenis": "mengikat",
+  "keterangan": "Peta rencana tambang tidak boleh keluar dari batas studi kelayakan.",
+  "id": "I06-I10"
+ },
+ {
+  "dari": "I01",
+  "ke": "I28",
+  "jenis": "prasyarat",
+  "keterangan": "Data administratif RKAB ditarik dari OSS.",
+  "id": "I01-I28"
+ },
+ {
+  "dari": "I04",
+  "ke": "I28",
+  "jenis": "prasyarat",
+  "keterangan": "RKAB OP hanya untuk pemegang IUP OP.",
+  "id": "I04-I28"
+ },
+ {
+  "dari": "I05",
+  "ke": "I28",
+  "jenis": "prasyarat",
+  "keterangan": "Syarat RKAB: laporan estimasi sumber daya & cadangan.",
+  "id": "I05-I28"
+ },
+ {
+  "dari": "I24",
+  "ke": "I28",
+  "jenis": "prasyarat",
+  "keterangan": "Syarat RKAB: bukti pembayaran PNBP.",
+  "id": "I24-I28"
+ },
+ {
+  "dari": "I10",
+  "ke": "I28",
+  "jenis": "prasyarat",
+  "keterangan": "Syarat RKAB: peta digital realisasi & rencana.",
+  "id": "I10-I28"
+ },
+ {
+  "dari": "I07",
+  "ke": "I28",
+  "jenis": "prasyarat",
+  "keterangan": "Syarat RKAB: memiliki KTT.",
+  "id": "I07-I28"
+ },
+ {
+  "dari": "I25",
+  "ke": "I28",
+  "jenis": "prasyarat",
+  "keterangan": "Syarat RKAB: bukti penempatan jaminan reklamasi.",
+  "id": "I25-I28"
+ },
+ {
+  "dari": "I06",
+  "ke": "I28",
+  "jenis": "mengikat",
+  "keterangan": "Produksi & lokasi RKAB tidak melebihi studi kelayakan.",
+  "id": "I06-I28"
+ },
+ {
+  "dari": "I16",
+  "ke": "I28",
+  "jenis": "mengikat",
+  "keterangan": "Produksi & lokasi RKAB tidak melebihi izin lingkungan.",
+  "id": "I16-I28"
+ },
+ {
+  "dari": "I07",
+  "ke": "I13",
+  "jenis": "prasyarat",
+  "keterangan": "Bahan peledak berada di bawah tanggung jawab KTT.",
+  "id": "I07-I13"
+ },
+ {
+  "dari": "I28",
+  "ke": "I13",
+  "jenis": "turunan",
+  "keterangan": "Penggunaan bahan peledak menjadi lampiran RKAB.",
+  "id": "I28-I13"
+ },
+ {
+  "dari": "I28",
+  "ke": "I14",
+  "jenis": "turunan",
+  "keterangan": "BBM dan fasilitas impor menjadi lampiran RKAB.",
+  "id": "I28-I14"
+ },
+ {
+  "dari": "I07",
+  "ke": "I29",
+  "jenis": "prasyarat",
+  "keterangan": "PJO kontraktor disahkan oleh KTT.",
+  "id": "I07-I29"
+ },
+ {
+  "dari": "I15",
+  "ke": "I32",
+  "jenis": "prasyarat",
+  "keterangan": "Lokasi terminal harus sesuai tata ruang.",
+  "id": "I15-I32"
+ },
+ {
+  "dari": "I23",
+  "ke": "I32",
+  "jenis": "prasyarat",
+  "keterangan": "Terminal di perairan memerlukan KKPRL.",
+  "id": "I23-I32"
+ },
+ {
+  "dari": "I28",
+  "ke": "GO",
+  "jenis": "gerbang",
+  "keterangan": "Tanpa RKAB disetujui, kegiatan fisik dilarang (Pasal 16 ayat (1) huruf a–c).",
+  "id": "I28-GO"
+ },
+ {
+  "dari": "I21",
+  "ke": "GO",
+  "jenis": "gerbang",
+  "keterangan": "RKAB disetujui tetap tidak boleh dijalankan di kawasan hutan tanpa PPKH (Pasal 16 ayat (1) huruf d).",
+  "id": "I21-GO"
+ },
+ {
+  "dari": "I22",
+  "ke": "GO",
+  "jenis": "gerbang",
+  "keterangan": "Kegiatan hanya di tanah yang haknya sudah diselesaikan (Pasal 9 & 16).",
+  "id": "I22-GO"
+ },
+ {
+  "dari": "I23",
+  "ke": "GO",
+  "jenis": "gerbang",
+  "keterangan": "Kegiatan di ruang laut memerlukan persetujuan pemanfaatan ruang laut (Pasal 9 & 16).",
+  "id": "I23-GO"
+ },
+ {
+  "dari": "I17",
+  "ke": "GO",
+  "jenis": "gerbang",
+  "keterangan": "Air limbah tambang baru boleh dibuang setelah pertek & SLO.",
+  "id": "I17-GO"
+ },
+ {
+  "dari": "I29",
+  "ke": "GO",
+  "jenis": "prasyarat",
+  "keterangan": "Kontraktor baru boleh bekerja setelah ber-IUJP.",
+  "id": "I29-GO"
+ },
+ {
+  "dari": "GO",
+  "ke": "I30",
+  "jenis": "turunan",
+  "keterangan": "Kegiatan produksi wajib dilaporkan setiap triwulan.",
+  "id": "GO-I30"
+ },
+ {
+  "dari": "GO",
+  "ke": "I33",
+  "jenis": "turunan",
+  "keterangan": "Produksi menimbulkan kewajiban DMO dan harga acuan.",
+  "id": "GO-I33"
+ },
+ {
+  "dari": "I28",
+  "ke": "I31",
+  "jenis": "prasyarat",
+  "keterangan": "Pencampuran hanya bagi pemegang RKAB yang disetujui.",
+  "id": "I28-I31"
+ },
+ {
+  "dari": "GO",
+  "ke": "I34",
+  "jenis": "turunan",
+  "keterangan": "Penjualan ekspor menimbulkan kewajiban DHE SDA.",
+  "id": "GO-I34"
+ },
+ {
+  "dari": "I03",
+  "ke": "I36",
+  "jenis": "prasyarat",
+  "keterangan": "RKAB Eksplorasi hanya untuk pemegang IUP Eksplorasi.",
+  "id": "I03-I36"
+ },
+ {
+  "dari": "I07",
+  "ke": "I36",
+  "jenis": "prasyarat",
+  "keterangan": "Syarat RKAB Eksplorasi: memiliki KTT.",
+  "id": "I07-I36"
+ },
+ {
+  "dari": "I24",
+  "ke": "I36",
+  "jenis": "prasyarat",
+  "keterangan": "Syarat RKAB Eksplorasi: bukti pembayaran PNBP.",
+  "id": "I24-I36"
+ },
+ {
+  "dari": "I29",
+  "ke": "I35",
+  "jenis": "prasyarat",
+  "keterangan": "Persetujuan afiliasi terbatas pada bidang IUJP afiliasi.",
+  "id": "I29-I35"
+ },
+ {
+  "dari": "I35",
+  "ke": "GO",
+  "jenis": "prasyarat",
+  "keterangan": "Kontraktor afiliasi baru boleh bekerja setelah disetujui Menteri.",
+  "id": "I35-GO"
+ }
+]

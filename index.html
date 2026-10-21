@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compliance Perizinan Tambang Batubara</title>
+<meta name="description" content="Dashboard edukatif kepatuhan perizinan pertambangan batubara: checklist izin per tahap kegiatan, dokumen RKAB, timeline pengurusan, keterkaitan izin, dan konsekuensi hukum.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f1e1d'/%3E%3Cpath d='M9 17l5 5 9-11' stroke='%23faf9f5' stroke-width='3.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --font-anthropic-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-anthropic-serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --color-fg:#1f1e1d;--color-fg-muted:#6b6862;--color-bg:#faf9f5;--color-panel:#ffffff;
+  --color-border-line:#e6e3da;--color-ok:#2f7d4f;--color-warn:#a86412;--color-bad:#b3362c;
+  --cds-font-size-caption:.8125rem;--cds-font-size-body:.9375rem;--cds-font-size-heading:1.0625rem;--cds-font-size-title:1.75rem;
+  --cds-font-weight-medium:550;
+  --cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:14px;--cds-gap-lg:22px;--cds-gap-xl:32px;
+  --cds-pad-xs:4px;--cds-pad-sm:8px;--cds-pad-md:14px;--cds-pad-lg:20px;--cds-pad-xl:28px;
+  --cds-radius:10px;
+  --cds-chart-muted:#b9b5ab;--cds-chart-grid:#ece9e1;--cds-chart-axis:#c9c5bb;--cds-chart-reference:#8a867d;--cds-chart-status-critical:#c0392b;
+  --cds-surface-popover:#ffffff;--cds-border:#e0ddd4;--cds-shadow-popover:0 6px 24px rgba(0,0,0,.12);--cds-text-secondary:#6b6862;
+  --cds-dur-slow:.3s;--cds-ease-out:cubic-bezier(.2,.7,.2,1);
+  --c1:#2c6fbb;--c2:#c2410c;--c3:#2f8a5b;--c4:#8b5cf6;--c5:#b45309;--c6:#0e7490;--c7:#be185d;--c8:#4d7c0f;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --color-fg:#ece9e1;--color-fg-muted:#a29e94;--color-bg:#1b1a18;--color-panel:#242320;
+  --color-border-line:#3a3833;--color-ok:#6cc18f;--color-warn:#e0a34f;--color-bad:#ef7a6f;
+  --cds-chart-muted:#6a675f;--cds-chart-grid:#33312c;--cds-chart-axis:#4a4740;--cds-chart-reference:#9a968c;--cds-chart-status-critical:#ef6f62;
+  --cds-surface-popover:#2b2a26;--cds-border:#45423b;--cds-shadow-popover:0 6px 24px rgba(0,0,0,.45);--cds-text-secondary:#a29e94;
+  --c1:#6aa8ef;--c2:#f08a5d;--c3:#5cc28f;--c4:#b197fc;--c5:#e0a34f;--c6:#4cc3d9;--c7:#f472b6;--c8:#9ccc5a;
+  color-scheme:dark;
+}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);-webkit-font-smoothing:antialiased}
+#dash-root{padding:clamp(16px,3vw,40px);}
+#dash-root button,#dash-root input,#dash-root select{font-family:inherit}
+.dash-skeleton{position:relative;color:transparent!important;min-height:1em;}
+.dash-skeleton::after{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:min(100%,8rem);height:.8em;border-radius:6px;
+  background:linear-gradient(90deg,var(--color-border-line),color-mix(in srgb,var(--color-border-line) 40%,transparent),var(--color-border-line));background-size:200% 100%;animation:cxsk 1.2s linear infinite}
+div.dash-skeleton::after,section.dash-skeleton::after{width:100%;height:100%;top:0;transform:none}
+@keyframes cxsk{to{background-position:-200% 0}}
+</style>
+</head>
+<body>
+<div id="dash-root">
+<style>
+.cx{font-family:var(--font-anthropic-sans);color:var(--color-fg);max-width:1280px;margin-inline:auto;}
+.cx *{box-sizing:border-box;}
+.cx-head{padding-block:var(--cds-pad-md) var(--cds-pad-lg);display:grid;gap:var(--cds-gap-sm);}
+.cx-eyebrow{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);letter-spacing:.04em;text-transform:uppercase;}
+.cx-title{font-family:var(--font-anthropic-serif);font-weight:400;font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.15;margin:0;}
+.cx-lede{font-size:var(--cds-font-size-body);color:var(--color-fg-muted);max-width:68ch;margin:0;line-height:1.55;}
+.cx-lede b,.cx b.n{color:var(--color-fg);font-weight:600;font-variant-numeric:tabular-nums;}
+.cx-tabs{display:flex;gap:var(--cds-gap-xs);overflow-x:auto;border-bottom:1px solid var(--color-border-line);margin-bottom:var(--cds-pad-lg);scrollbar-width:thin;position:sticky;top:0;background:var(--color-bg);z-index:3;}
+.cx-tab{appearance:none;border:0;background:none;font:inherit;font-size:var(--cds-font-size-body);color:var(--color-fg-muted);padding:var(--cds-pad-sm) var(--cds-pad-md);border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;}
+.cx-tab:hover{color:var(--color-fg);}
+.cx-tab[aria-selected="true"]{color:var(--color-fg);border-bottom-color:var(--color-fg);font-weight:500;}
+.cx-page[hidden]{display:none;}
+.cx-page{display:grid;gap:var(--cds-gap-lg);}
+.cx-sec-title{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0;}
+.cx-sec-note{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:2px 0 0;line-height:1.5;}
+.cx-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);min-width:0;}
+.cx-card>header{margin-bottom:var(--cds-pad-md);}
+.cx-grid{display:grid;gap:var(--cds-gap-md);grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));}
+.cx-kpis{display:grid;gap:var(--cds-gap-md);grid-template-columns:repeat(auto-fit,minmax(min(100%,10.5rem),1fr));}
+.cx-kpi{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-md) var(--cds-pad-lg);display:grid;gap:4px;align-content:start;}
+.cx-kpi .lbl{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+.cx-kpi .val{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);line-height:1.1;font-variant-numeric:tabular-nums;min-height:1.2em;}
+.cx-kpi .sub{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.4;}
+.cx-chip{display:inline-flex;align-items:center;gap:4px;font-size:var(--cds-font-size-caption);line-height:1.3;padding:1px 8px;border-radius:999px;border:1px solid var(--color-border-line);color:var(--color-fg-muted);white-space:nowrap;}
+.cx-chip.wajib{color:var(--color-fg);border-color:color-mix(in srgb,var(--color-fg) 35%,transparent);}
+.cx-chip.kond{border-style:dashed;}
+.cx-chip.rkab{color:var(--color-ok);border-color:color-mix(in srgb,var(--color-ok) 45%,transparent);}
+.cx-chip.bad{color:var(--color-bad);border-color:color-mix(in srgb,var(--color-bad) 45%,transparent);}
+.cx-chip.warn{color:var(--color-warn);border-color:color-mix(in srgb,var(--color-warn) 45%,transparent);}
+.cx-chip.ok{color:var(--color-ok);border-color:color-mix(in srgb,var(--color-ok) 45%,transparent);}
+.cx-dot{width:.6rem;height:.6rem;border-radius:50%;display:inline-block;flex:none;}
+.cx-muted{color:var(--color-fg-muted);}
+.cx-small{font-size:var(--cds-font-size-caption);}
+.cx-btn{appearance:none;font:inherit;font-size:var(--cds-font-size-caption);border:1px solid var(--color-border-line);background:var(--color-bg);color:var(--color-fg);border-radius:999px;padding:4px 12px;cursor:pointer;}
+.cx-btn:hover{border-color:color-mix(in srgb,var(--color-fg) 40%,transparent);}
+.cx-btn[aria-pressed="true"]{background:var(--color-fg);color:var(--color-bg);border-color:var(--color-fg);}
+.cx-link{appearance:none;border:0;background:none;padding:0;font:inherit;color:inherit;text-decoration:underline;text-decoration-color:color-mix(in srgb,currentColor 35%,transparent);text-underline-offset:3px;cursor:pointer;text-align:left;}
+/* fase flow */
+.cx-flow{display:grid;gap:var(--cds-gap-sm);}
+.cx-flow-row{display:grid;grid-template-columns:minmax(9rem,13rem) 1fr auto;gap:var(--cds-gap-md);align-items:center;}
+.cx-flow-name{display:flex;align-items:center;gap:8px;font-size:var(--cds-font-size-body);}
+.cx-flow-bar{display:flex;height:14px;border-radius:7px;overflow:hidden;background:color-mix(in srgb,var(--color-fg) 6%,transparent);}
+.cx-flow-bar span{height:100%;}
+.cx-flow-val{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.cx-legend{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm) var(--cds-gap-md);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-top:var(--cds-pad-sm);}
+.cx-legend span{display:inline-flex;align-items:center;gap:6px;}
+.cx-sw{width:14px;height:8px;border-radius:2px;display:inline-block;}
+/* gates */
+.cx-gates{display:grid;gap:var(--cds-gap-sm);}
+.cx-gate{display:grid;grid-template-columns:auto 1fr;gap:var(--cds-gap-sm) var(--cds-gap-md);align-items:start;padding:var(--cds-pad-sm) 0;border-top:1px solid var(--color-border-line);}
+.cx-gate:first-child{border-top:0;padding-top:0;}
+.cx-gate-ico{width:1.75rem;height:1.75rem;border-radius:50%;display:grid;place-items:center;font-size:var(--cds-font-size-caption);font-weight:600;background:color-mix(in srgb,var(--color-bad) 14%,transparent);color:var(--color-bad);}
+.cx-gate h4{margin:0;font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium);}
+.cx-gate p{margin:2px 0 0;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.5;}
+/* highlights */
+.cx-hl{display:grid;gap:var(--cds-gap-md);}
+.cx-hl-item{border-left:3px solid var(--color-border-line);padding-left:var(--cds-pad-md);}
+.cx-hl-item.new{border-left-color:var(--color-ok);}
+.cx-hl-item.old{border-left-color:var(--color-warn);}
+.cx-hl-item .t{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.cx-hl-item p{margin:4px 0 0;font-size:var(--cds-font-size-body);line-height:1.5;}
+/* checklist */
+.cx-tools{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm);align-items:center;margin-bottom:var(--cds-pad-md);}
+.cx-input,.cx-select{font:inherit;font-size:var(--cds-font-size-body);border:1px solid var(--color-border-line);background:var(--color-bg);color:var(--color-fg);border-radius:var(--cds-radius);padding:6px 10px;min-width:0;}
+.cx-input{flex:1 1 14rem;}
+.cx-split{display:grid;gap:var(--cds-gap-md);grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);align-items:start;}
+@media (max-width:980px){.cx-split{grid-template-columns:1fr;}}
+.cx-tablebox{max-height:70vh;overflow:auto;border-radius:var(--cds-radius);}
+.cx-table{width:100%;border-collapse:collapse;font-size:var(--cds-font-size-body);}
+.cx-table th{position:sticky;top:0;background:var(--color-panel);text-align:left;font-size:var(--cds-font-size-caption);font-weight:500;color:var(--color-fg-muted);padding:8px 10px;border-bottom:1px solid var(--color-border-line);white-space:nowrap;z-index:1;}
+.cx-table td{padding:9px 10px;border-bottom:1px solid var(--color-border-line);vertical-align:top;line-height:1.4;}
+.cx-table tbody tr{cursor:pointer;}
+.cx-table tbody tr:hover td{background:color-mix(in srgb,var(--color-fg) 4%,transparent);}
+.cx-table tbody tr.sel td{background:color-mix(in srgb,var(--color-fg) 7%,transparent);}
+.cx-table .nm{display:flex;gap:8px;align-items:flex-start;}
+.cx-table .nm .cx-dot{margin-top:.35rem;}
+.cx-table .inst{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);max-width:16rem;}
+.cx-table .masa{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);max-width:12rem;}
+@media (max-width:760px){.cx-table .col-inst,.cx-table .col-masa{display:none;}}
+.cx-st{appearance:none;font:inherit;font-size:var(--cds-font-size-caption);border-radius:999px;padding:2px 10px;border:1px solid var(--color-border-line);background:transparent;color:var(--color-fg-muted);cursor:pointer;white-space:nowrap;}
+.cx-st[data-st="Lengkap"]{color:var(--color-ok);border-color:color-mix(in srgb,var(--color-ok) 50%,transparent);background:color-mix(in srgb,var(--color-ok) 10%,transparent);}
+.cx-st[data-st="Proses"]{color:var(--color-warn);border-color:color-mix(in srgb,var(--color-warn) 50%,transparent);background:color-mix(in srgb,var(--color-warn) 10%,transparent);}
+.cx-st[data-st="Belum ada"]{color:var(--color-bad);border-color:color-mix(in srgb,var(--color-bad) 50%,transparent);background:color-mix(in srgb,var(--color-bad) 10%,transparent);}
+.cx-st[data-st="Tidak berlaku"]{text-decoration:line-through;}
+.cx-prog{display:grid;gap:6px;margin-bottom:var(--cds-pad-md);}
+.cx-prog-bar{display:flex;height:10px;border-radius:5px;overflow:hidden;background:color-mix(in srgb,var(--color-fg) 7%,transparent);}
+.cx-prog-bar span{height:100%;transition:width var(--cds-dur-slow) var(--cds-ease-out);}
+.cx-prog-txt{display:flex;flex-wrap:wrap;gap:var(--cds-gap-md);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+.cx-ready{border-radius:var(--cds-radius);padding:var(--cds-pad-sm) var(--cds-pad-md);font-size:var(--cds-font-size-caption);line-height:1.5;border:1px solid var(--color-border-line);}
+.cx-ready.bad{border-color:color-mix(in srgb,var(--color-bad) 45%,transparent);background:color-mix(in srgb,var(--color-bad) 7%,transparent);}
+.cx-ready.ok{border-color:color-mix(in srgb,var(--color-ok) 45%,transparent);background:color-mix(in srgb,var(--color-ok) 7%,transparent);}
+/* detail */
+.cx-detail{position:sticky;top:3.5rem;display:grid;gap:var(--cds-gap-md);}
+.cx-detail h3{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0;line-height:1.2;}
+.cx-kv{display:grid;grid-template-columns:auto 1fr;gap:6px var(--cds-gap-md);font-size:var(--cds-font-size-caption);}
+.cx-kv dt{color:var(--color-fg-muted);}
+.cx-kv dd{margin:0;line-height:1.45;}
+.cx-detail h4{margin:0 0 6px;font-size:var(--cds-font-size-caption);font-weight:500;color:var(--color-fg-muted);text-transform:uppercase;letter-spacing:.04em;}
+.cx-detail p{margin:0;line-height:1.55;font-size:var(--cds-font-size-body);}
+.cx-docs{list-style:none;margin:0;padding:0;display:grid;gap:6px;}
+.cx-docs li{display:flex;gap:8px;align-items:flex-start;font-size:var(--cds-font-size-body);line-height:1.45;}
+.cx-docs input{margin-top:.25rem;accent-color:var(--color-ok);}
+.cx-rel{display:flex;flex-wrap:wrap;gap:6px;}
+.cx-rel .cx-btn{border-radius:var(--cds-radius);}
+.cx-warnbox{border-left:3px solid var(--color-bad);padding:6px 0 6px var(--cds-pad-md);}
+.cx-seg{display:flex;flex-wrap:wrap;gap:4px;}
+/* graph */
+.cx-graphbox{overflow-x:auto;position:relative;}
+.cx-graph{display:block;}
+.cx-graph .node{cursor:pointer;}
+.cx-graph .node rect{stroke-width:1.5;transition:opacity var(--cds-dur-slow);}
+.cx-graph .node text{font-family:var(--font-anthropic-sans);font-size:11.5px;fill:var(--color-fg);pointer-events:none;}
+.cx-graph .edge{fill:none;transition:opacity var(--cds-dur-slow);}
+.cx-graph.focus .node:not(.on){opacity:.22;}
+.cx-graph.focus .edge:not(.on){opacity:.08;}
+.cx-graph .node.sel rect{stroke-width:3;}
+.cx-graph .node.up rect{stroke-dasharray:0;}
+.cx-impact{display:grid;gap:var(--cds-gap-md);grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));}
+.cx-impact ul{margin:6px 0 0;padding-left:1.1rem;font-size:var(--cds-font-size-body);line-height:1.6;}
+.cx-bind{display:grid;gap:var(--cds-gap-sm);}
+.cx-bind-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:var(--cds-gap-sm);align-items:center;font-size:var(--cds-font-size-body);}
+.cx-bind-row .mid{color:var(--color-warn);font-size:var(--cds-font-size-caption);text-align:center;}
+.cx-bind-row .k{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);grid-column:1/-1;margin:-2px 0 6px;}
+/* rkab */
+.cx-syarat{display:grid;gap:var(--cds-gap-md);grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));}
+.cx-sy{border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-md);display:grid;gap:8px;align-content:start;background:var(--color-bg);}
+.cx-sy .no{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-title);line-height:1;color:var(--color-fg-muted);}
+.cx-sy .t{font-size:var(--cds-font-size-body);font-weight:500;line-height:1.4;}
+.cx-sy .p{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+.cx-sy .c{font-size:var(--cds-font-size-caption);line-height:1.5;}
+.cx-steps{display:flex;gap:0;align-items:stretch;overflow-x:auto;padding-bottom:4px;}
+.cx-step{flex:1 1 0;min-width:9.5rem;position:relative;padding:var(--cds-pad-md);border:1px solid var(--color-border-line);background:var(--color-bg);border-radius:var(--cds-radius);margin-right:22px;}
+.cx-step:not(:last-child)::after{content:"";position:absolute;right:-17px;top:50%;width:12px;height:12px;border-top:2px solid var(--color-fg-muted);border-right:2px solid var(--color-fg-muted);transform:translateY(-50%) rotate(45deg);}
+.cx-step .v{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-title);line-height:1.1;font-variant-numeric:tabular-nums;}
+.cx-step .u{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+.cx-step .d{font-size:var(--cds-font-size-caption);line-height:1.45;margin-top:6px;}
+/* sanksi */
+.cx-ladder{display:grid;gap:var(--cds-gap-md);}
+.cx-lad-main{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+@media (max-width:640px){.cx-lad-main{grid-template-columns:1fr;}}
+.cx-lad{position:relative;border-radius:var(--cds-radius);padding:var(--cds-pad-md);border:1px solid var(--color-border-line);background:var(--color-bg);}
+.cx-lad .h{font-weight:500;font-size:var(--cds-font-size-body);}
+.cx-lad .v{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-title);line-height:1.1;margin:4px 0;font-variant-numeric:tabular-nums;}
+.cx-lad .d{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.45;}
+.cx-lad.l1{border-color:color-mix(in srgb,var(--color-warn) 50%,transparent);}
+.cx-lad.l2{border-color:color-mix(in srgb,var(--color-bad) 40%,transparent);}
+.cx-lad.l3{border-color:var(--color-bad);background:color-mix(in srgb,var(--color-bad) 8%,transparent);}
+.cx-lad-short{display:grid;gap:var(--cds-gap-sm);grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));}
+.cx-lad-short .cx-lad{border-style:dashed;border-color:var(--color-bad);}
+.cx-bars{display:grid;gap:10px;position:relative;}
+.cx-bar-row{display:grid;grid-template-columns:minmax(8rem,15rem) 1fr;gap:var(--cds-gap-md);align-items:center;}
+.cx-bar-lbl{font-size:var(--cds-font-size-caption);line-height:1.35;}
+.cx-bar-track{height:22px;display:grid;grid-template-columns:minmax(0,1fr) 8.5rem;align-items:center;gap:8px;}
+.cx-bar-area{height:16px;}
+.cx-bar{height:16px;border-radius:4px;background:var(--cds-chart-status-critical);min-width:3px;}
+.cx-bar.mid{background:var(--cds-chart-muted);}
+.cx-bar-val{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);white-space:nowrap;font-variant-numeric:tabular-nums;}
+.cx-tip{position:absolute;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);border-radius:var(--cds-radius);box-shadow:var(--cds-shadow-popover);padding:var(--cds-pad-xs) var(--cds-pad-sm);font-size:var(--cds-font-size-caption);max-width:18rem;line-height:1.45;z-index:5;opacity:0;transition:opacity .12s;}
+.cx-tip .s{color:var(--cds-text-secondary);}
+.cx-lvl{font-size:var(--cds-font-size-caption);font-weight:500;}
+.cx-lvl.Kritis{color:var(--color-bad);}
+.cx-lvl.Tinggi{color:var(--color-warn);}
+.cx-lvl.Sedang{color:var(--color-fg-muted);}
+/* kalender */
+.cx-year{position:relative;}
+.cx-year svg{display:block;}
+.cx-evlist{list-style:none;margin:var(--cds-pad-md) 0 0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));}
+.cx-evlist li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;font-size:var(--cds-font-size-body);line-height:1.4;}
+.cx-evno{width:1.5rem;height:1.5rem;border-radius:50%;display:grid;place-items:center;font-size:var(--cds-font-size-caption);font-weight:600;color:var(--color-bg);flex:none;}
+.cx-evlist .w{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+.cx-dl{display:grid;gap:8px;}
+.cx-dl-row{display:grid;grid-template-columns:5.5rem 1fr;gap:var(--cds-gap-md);align-items:baseline;padding:8px 0;border-top:1px solid var(--color-border-line);}
+.cx-dl-row:first-child{border-top:0;}
+.cx-dl-row .v{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-heading);font-variant-numeric:tabular-nums;}
+.cx-dl-row .u{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);display:block;font-family:var(--font-anthropic-sans);}
+.cx-dl-row .k{font-size:var(--cds-font-size-body);line-height:1.4;}
+.cx-dl-row .b{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+/* regulasi */
+.cx-reg-status{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm);margin-bottom:var(--cds-pad-md);}
+.cx-reg-status .cx-kpi{min-width:9rem;padding:var(--cds-pad-sm) var(--cds-pad-md);}
+.cx-table a{color:inherit;text-decoration-color:color-mix(in srgb,currentColor 35%,transparent);text-underline-offset:3px;}
+.cx-foot{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.6;border-top:1px solid var(--color-border-line);padding-top:var(--cds-pad-md);margin-top:var(--cds-pad-lg);}
+[data-dash-source-state=empty]{color:transparent;}
+[data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow);}
+.cx-fail{display:flex;align-items:center;justify-content:center;gap:8px;min-height:4rem;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+.cx-fail::before{content:"";width:.375rem;height:.375rem;border-radius:50%;background:var(--color-bad);}
+@media (prefers-reduced-motion:no-preference){
+  .cx-page.enter{animation:cxIn var(--cds-dur-slow) var(--cds-ease-out);}
+  @keyframes cxIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+}
+
+/* profile */
+.cx-profile{display:grid;gap:var(--cds-gap-md);margin-bottom:var(--cds-pad-lg);}
+.cx-step-lbl{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0 0 8px;display:flex;gap:8px;align-items:center;}
+.cx-step-lbl .k{display:inline-grid;place-items:center;width:1.25rem;height:1.25rem;border-radius:50%;background:var(--color-fg);color:var(--color-bg);font-size:11px;font-weight:600;}
+.cx-stages{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;}
+@media (max-width:900px){.cx-stages{grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));}}
+.cx-stage{appearance:none;font:inherit;text-align:left;border:1px solid var(--color-border-line);background:var(--color-bg);color:var(--color-fg);border-radius:var(--cds-radius);padding:10px 12px;cursor:pointer;display:grid;gap:4px;align-content:start;position:relative;}
+.cx-stage:hover{border-color:color-mix(in srgb,var(--color-fg) 40%,transparent);}
+.cx-stage .n{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums;}
+.cx-stage .t{font-size:var(--cds-font-size-body);font-weight:500;line-height:1.3;}
+.cx-stage .c{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+.cx-stage.past{background:color-mix(in srgb,var(--color-fg) 4%,var(--color-bg));}
+.cx-stage[aria-pressed="true"]{background:var(--color-fg);color:var(--color-bg);border-color:var(--color-fg);}
+.cx-stage[aria-pressed="true"] .n,.cx-stage[aria-pressed="true"] .c{color:color-mix(in srgb,var(--color-bg) 75%,transparent);}
+.cx-stage-desc{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:8px 0 0;line-height:1.5;}
+.cx-prof-row{display:grid;gap:var(--cds-gap-md);grid-template-columns:minmax(0,1fr) auto;align-items:start;}
+@media (max-width:760px){.cx-prof-row{grid-template-columns:1fr;}}
+.cx-conds{display:flex;flex-wrap:wrap;gap:6px;}
+.cx-date{display:grid;gap:4px;}
+/* ringkasan list */
+.cx-need{display:grid;gap:var(--cds-gap-lg);}
+.cx-need-grp h3{display:flex;gap:8px;align-items:center;font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium);margin:0 0 6px;}
+.cx-need-grp h3 .cnt{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-weight:400;}
+.cx-need-item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;padding:8px 0;border-top:1px solid var(--color-border-line);align-items:start;}
+.cx-need-item .nm{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:var(--cds-font-size-body);}
+.cx-need-item .rk{grid-column:2;font-size:var(--cds-font-size-caption);color:var(--color-bad);line-height:1.45;}
+.cx-need-item .rk.ok{color:var(--color-ok);}
+.cx-need-item .dur{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+.cx-risk{display:grid;gap:var(--cds-gap-sm);}
+.cx-risk-item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;padding:10px 0;border-top:1px solid var(--color-border-line);}
+.cx-risk-item:first-child{border-top:0;}
+.cx-risk-item .h{font-weight:500;font-size:var(--cds-font-size-body);}
+.cx-risk-item .a{font-size:var(--cds-font-size-caption);line-height:1.5;}
+.cx-risk-item .b{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);}
+.cx-mini-ladder{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:var(--cds-font-size-caption);margin-top:var(--cds-pad-md);padding-top:var(--cds-pad-md);border-top:1px dashed var(--color-border-line);}
+.cx-mini-ladder .s{padding:3px 10px;border-radius:999px;border:1px solid var(--color-border-line);}
+.cx-mini-ladder .s.l3{border-color:var(--color-bad);color:var(--color-bad);}
+/* gantt */
+.cx-gtools{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm);align-items:center;margin-bottom:var(--cds-pad-md);}
+.cx-gbox{overflow-x:auto;position:relative;}
+.cx-gantt{display:grid;grid-template-columns:minmax(13rem,19rem) minmax(0,1fr);min-width:760px;font-size:var(--cds-font-size-caption);}
+.cx-g-head{position:sticky;top:0;background:var(--color-panel);z-index:2;height:34px;border-bottom:1px solid var(--color-border-line);}
+.cx-g-axis{position:relative;}
+.cx-g-axis span{position:absolute;top:10px;color:var(--color-fg-muted);white-space:nowrap;transform:translateX(2px);}
+.cx-g-lbl{padding:4px 10px 4px 0;border-bottom:1px solid var(--color-border-line);display:grid;gap:3px;height:50px;align-content:center;overflow:hidden;}
+.cx-g-lbl .t{font-size:var(--cds-font-size-caption);color:var(--color-fg);line-height:1.3;display:flex;gap:6px;align-items:center;min-width:0;white-space:nowrap;}
+.cx-g-lbl .m{color:var(--color-fg-muted);display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.cx-g-lbl input{width:3.6rem;font:inherit;font-size:var(--cds-font-size-caption);padding:1px 4px;border:1px solid var(--color-border-line);border-radius:4px;background:var(--color-bg);color:var(--color-fg);}
+.cx-g-row{position:relative;border-bottom:1px solid var(--color-border-line);height:50px;}
+.cx-g-bar{position:absolute;top:16px;height:18px;border-radius:4px;min-width:4px;cursor:default;}
+.cx-g-bar.est{background-image:repeating-linear-gradient(135deg,transparent 0 5px,color-mix(in srgb,var(--color-panel) 55%,transparent) 5px 9px);}
+.cx-g-bar.crit{box-shadow:0 0 0 2px var(--color-bad);}
+.cx-g-bar.done{background:transparent!important;border:1.5px dashed var(--color-ok);}
+.cx-g-wait{position:absolute;top:24px;height:2px;background:repeating-linear-gradient(90deg,var(--color-warn) 0 4px,transparent 4px 8px);}
+.cx-g-dt{position:absolute;top:17px;white-space:nowrap;color:var(--color-fg-muted);font-variant-numeric:tabular-nums;}
+.cx-g-grid{position:absolute;top:0;bottom:0;border-left:1px solid var(--cds-chart-grid);pointer-events:none;}
+.cx-g-win{position:absolute;top:0;bottom:0;background:color-mix(in srgb,var(--color-warn) 9%,transparent);pointer-events:none;}
+.cx-g-today{position:absolute;top:0;bottom:0;border-left:1.5px dashed var(--cds-chart-reference);pointer-events:none;}
+.cx-g-ms{position:absolute;top:18px;width:14px;height:14px;transform:translateX(-7px) rotate(45deg);background:var(--color-fg);}
+.cx-g-body{position:relative;}
+.cx-g-overlay{position:absolute;inset:0;pointer-events:none;}
+.cx-g-legend{display:flex;flex-wrap:wrap;gap:var(--cds-gap-md);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-top:var(--cds-pad-md);}
+.cx-g-legend span{display:inline-flex;align-items:center;gap:6px;}
+.cx-warnlist{margin:0;padding-left:1.1rem;font-size:var(--cds-font-size-caption);line-height:1.6;}
+.cx-graph .node.out{opacity:.28;}
+
+.cx-bigsel{font-size:var(--cds-font-size-heading);padding:8px 12px;min-width:min(100%,24rem);}
+.cx-qgrid{display:grid;gap:var(--cds-gap-md);grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));}
+.cx-q{display:grid;gap:4px;align-content:start;}
+.cx-q label{font-size:var(--cds-font-size-caption);font-weight:500;}
+.cx-q select{width:100%;}
+.cx-q .h{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.45;}
+.cx-q .h b{color:var(--color-fg);font-weight:500;}
+.cx-q.on select{border-color:color-mix(in srgb,var(--color-warn) 55%,transparent);}
+select.cx-st{padding:2px 6px;}
+.cx-sub{font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium);margin:var(--cds-pad-lg) 0 var(--cds-pad-sm);}
+.cx-aspek{display:grid;gap:var(--cds-gap-sm);grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));}
+.cx-asp{border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-md);background:var(--color-bg);display:grid;gap:6px;align-content:start;}
+.cx-asp .h{display:flex;justify-content:space-between;gap:8px;font-weight:500;font-size:var(--cds-font-size-body);}
+.cx-asp .c{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.45;}
+.cx-asp.ok{border-color:color-mix(in srgb,var(--color-ok) 50%,transparent);}
+.cx-asp.bad{border-color:color-mix(in srgb,var(--color-bad) 40%,transparent);}
+.cx-rkdocs{display:grid;gap:var(--cds-gap-md);}
+.cx-rk-grp h4{margin:0 0 4px;font-size:var(--cds-font-size-caption);font-weight:500;color:var(--color-fg-muted);text-transform:uppercase;letter-spacing:.04em;}
+.cx-rk-item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;padding:10px 0;border-top:1px solid var(--color-border-line);}
+.cx-rk-item input{margin-top:.3rem;accent-color:var(--color-ok);width:1rem;height:1rem;}
+.cx-rk-item .t{font-size:var(--cds-font-size-body);font-weight:500;}
+.cx-rk-item .d{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.5;}
+.cx-rk-src{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:4px;font-size:var(--cds-font-size-caption);}
+.cx-rk-src .src{display:inline-flex;gap:6px;align-items:center;}
+.cx-rk-item.done .t{color:var(--color-ok);}
+.cx-rk-warn{font-size:var(--cds-font-size-caption);color:var(--color-bad);}
+</style>
+
+<div class="cx">
+  <header class="cx-head" id="top">
+    <div class="cx-eyebrow">Compliance · Pertambangan batubara</div>
+    <h1 class="cx-title">Compliance Perizinan Tambang Batubara</h1>
+    <p class="cx-lede">Pilih tahap kegiatan yang akan dilakukan perusahaan dan karakteristik lokasinya. Ringkasan, checklist, dan timeline akan menyesuaikan: izin apa yang harus dilengkapi, risiko hukum bila belum ada, dan kapan perusahaan realistis siap memulai.</p>
+  </header>
+
+  <section class="cx-card cx-profile" id="profil" aria-label="Profil kegiatan">
+    <div>
+      <p class="cx-step-lbl"><span class="k">1</span>Tahap kegiatan yang akan dilakukan</p>
+      <div class="cx-stagebox"><select class="cx-select cx-bigsel" id="stage" aria-label="Tahap kegiatan" data-source="tahap"></select></div>
+      <p class="cx-stage-desc" id="stage-desc" data-source="tahap izin"></p>
+    </div>
+    <div>
+      <p class="cx-step-lbl"><span class="k">2</span>Karakteristik kegiatan — menentukan izin kondisional sesuai regulasi yang berlaku</p>
+      <div class="cx-qgrid" id="conds" data-source="kondisi"></div>
+      <div id="cond-warn"></div>
+    </div>
+    <div class="cx-date">
+      <p class="cx-step-lbl"><span class="k">3</span>Tanggal mulai pengajuan dokumen</p>
+      <input class="cx-input" id="start" type="date" min="2020-01-01" max="2035-12-31" aria-label="Tanggal mulai pengajuan" style="max-width:14rem">
+    </div>
+  </section>
+
+  <nav class="cx-tabs" role="tablist" aria-label="Bagian dashboard">
+    <button class="cx-tab" role="tab" id="tab-ringkasan" data-page="ringkasan" aria-selected="true">Ringkasan</button>
+    <button class="cx-tab" role="tab" id="tab-checklist" data-page="checklist" aria-selected="false">Checklist izin</button>
+    <button class="cx-tab" role="tab" id="tab-timeline" data-page="timeline" aria-selected="false">Timeline compliance</button>
+    <button class="cx-tab" role="tab" id="tab-peta" data-page="peta" aria-selected="false">Peta keterkaitan</button>
+    <button class="cx-tab" role="tab" id="tab-rkab" data-page="rkab" aria-selected="false">Prasyarat RKAB</button>
+    <button class="cx-tab" role="tab" id="tab-kalender" data-page="kalender" aria-selected="false">Kalender kepatuhan</button>
+    <button class="cx-tab" role="tab" id="tab-regulasi" data-page="regulasi" aria-selected="false">Regulasi</button>
+  </nav>
+
+  <!-- RINGKASAN -->
+  <section class="cx-page" id="ringkasan" role="tabpanel" aria-labelledby="tab-ringkasan">
+    <p class="cx-lede" id="sum-lede" data-source="izin tahap" style="color:var(--color-fg)"></p>
+    <div class="cx-kpis" id="kpis" data-source="izin sanksi"></div>
+    <div class="cx-split">
+      <article class="cx-card" id="card-need">
+        <header><h2 class="cx-sec-title">Yang harus dilengkapi</h2><p class="cx-sec-note">Izin dan dokumen untuk tahap terpilih, per lapis. Garis merah di bawah tiap izin adalah konsekuensi bila belum dimiliki. Klik nama untuk detail; ubah status di tab Checklist.</p></header>
+        <div class="cx-need" id="need" data-source="izin sanksi"></div>
+      </article>
+      <div style="display:grid;gap:var(--cds-gap-md);align-content:start">
+        <article class="cx-card" id="card-risk">
+          <header><h2 class="cx-sec-title">Risiko hukum bila belum lengkap</h2><p class="cx-sec-note">Gabungan sanksi dari semua izin yang belum bertanda Lengkap, diurutkan dari yang paling berat.</p></header>
+          <div class="cx-risk" id="risk" data-source="sanksi izin"></div>
+          <div id="miniladder" data-source="eskalasi"></div>
+        </article>
+        <article class="cx-card" id="card-gerbang">
+          <header><h2 class="cx-sec-title">Gerbang sebelum alat bergerak</h2><p class="cx-sec-note">Untuk tahap konstruksi, penambangan, dan penjualan: semua harus terpenuhi bersamaan (Permen ESDM 17/2025 Pasal 9 &amp; 16).</p></header>
+          <div class="cx-gates" id="gates" data-source="izin relasi"></div>
+        </article>
+      </div>
+    </div>
+    <article class="cx-card" id="card-sorotan">
+      <header><h2 class="cx-sec-title">Yang berubah dan perlu Anda tahu</h2><p class="cx-sec-note">Sorotan regulasi 2025–2026 yang memengaruhi kelengkapan izin.</p></header>
+      <div class="cx-hl" id="sorotan" data-source="regulasi" style="min-height:6rem"></div>
+    </article>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="cx-page" id="checklist" role="tabpanel" aria-labelledby="tab-checklist" hidden>
+    <div class="cx-split">
+      <article class="cx-card" id="card-checklist">
+        <header><h2 class="cx-sec-title">Checklist kelengkapan izin</h2><p class="cx-sec-note">Klik status untuk menandai (Belum dicek → Lengkap → Proses → Belum ada → Tidak berlaku). Status dipakai juga oleh Ringkasan dan Timeline, dan tersimpan di browser ini.</p></header>
+        <div class="cx-prog" id="prog"></div>
+        <div class="cx-tools">
+          <input class="cx-input" id="q" type="search" placeholder="Cari izin, instansi, atau dasar hukum…" aria-label="Cari">
+          <select class="cx-select" id="f-fase" aria-label="Lapis"></select>
+          <select class="cx-select" id="f-sifat" aria-label="Sifat">
+            <option value="">Wajib &amp; kondisional</option><option value="Wajib">Hanya wajib</option><option value="Kondisional">Hanya kondisional</option>
+          </select>
+          <select class="cx-select" id="f-rkab" aria-label="Kaitan RKAB">
+            <option value="">Semua kaitan RKAB</option><option value="rkab">Terkait dokumen RKAB</option>
+          </select>
+          <select class="cx-select" id="f-all" aria-label="Cakupan">
+            <option value="">Sesuai tahap &amp; profil</option><option value="all">Semua tahap</option>
+          </select>
+        </div>
+        <div class="cx-tablebox">
+          <table class="cx-table" id="tbl-izin" data-source="izin" data-row-key="id">
+            <thead><tr>
+              <th data-field="nama">Izin / dokumen</th>
+              <th class="col-inst" data-field="instansi">Penerbit</th>
+              <th data-field="sifat">Sifat</th>
+              <th data-field="syarat_rkab">RKAB</th>
+              <th class="col-masa" data-field="masa_berlaku">Masa berlaku</th>
+              <th data-field="status_awal">Status</th>
+            </tr></thead>
+            <tbody id="tb-izin"></tbody>
+          </table>
+        </div>
+      </article>
+      <aside class="cx-card cx-detail" id="detail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="cx-page" id="timeline" role="tabpanel" aria-labelledby="tab-timeline" hidden>
+    <article class="cx-card" id="card-tl">
+      <header><h2 class="cx-sec-title" id="tl-title">Timeline compliance</h2><p class="cx-sec-note">Dihitung dari tanggal mulai pengajuan. Tiap izin dimulai setelah prasyaratnya selesai; lama pengurusan mengikuti SLA dalam regulasi. Batang bergaris adalah estimasi karena regulasi tidak menyebut SLA, dan angkanya bisa Anda ubah. Hari kerja dihitung Senin–Jumat, belum memperhitungkan libur nasional.</p></header>
+      <div id="tl-sum" data-source="izin relasi"></div>
+      <div class="cx-gtools">
+        <select class="cx-select" id="tl-open" aria-label="Tampilkan">
+          <option value="">Tampilkan semua izin</option><option value="open">Hanya yang belum lengkap</option>
+        </select>
+        <button class="cx-btn" id="tl-reset" type="button">Kembalikan durasi bawaan</button>
+      </div>
+      <div class="cx-gbox" id="gantt" data-source="izin relasi" style="min-height:20rem"></div>
+      <div class="cx-g-legend">
+        <span><i class="cx-sw" style="background:var(--color-fg-muted)"></i>Durasi sesuai regulasi</span>
+        <span><i class="cx-sw" style="background:repeating-linear-gradient(135deg,var(--color-fg-muted) 0 3px,transparent 3px 6px)"></i>Estimasi (bisa diubah)</span>
+        <span><i class="cx-sw" style="box-shadow:0 0 0 2px var(--color-bad);background:var(--color-fg-muted)"></i>Jalur kritis</span>
+        <span><i class="cx-sw" style="border:1.5px dashed var(--color-ok)"></i>Sudah lengkap</span>
+        <span><i class="cx-sw" style="background:repeating-linear-gradient(90deg,var(--color-warn) 0 4px,transparent 4px 8px);height:2px"></i>Menunggu jendela RKAB</span>
+        <span><i class="cx-sw" style="background:color-mix(in srgb,var(--color-warn) 25%,transparent)"></i>Jendela pengajuan RKAB (1 Okt–15 Nov)</span>
+      </div>
+    </article>
+    <article class="cx-card" id="card-rec">
+      <header><h2 class="cx-sec-title">Kewajiban berulang setelah mulai</h2><p class="cx-sec-note">Tidak punya durasi pengurusan, tetapi wajib dijalankan terus selama tahap berlangsung.</p></header>
+      <div class="cx-gates" id="recurring" data-source="izin kalender"></div>
+    </article>
+  </section>
+
+  <!-- PETA -->
+  <section class="cx-page" id="peta" role="tabpanel" aria-labelledby="tab-peta" hidden>
+    <article class="cx-card" id="card-graph">
+      <header><h2 class="cx-sec-title">Peta keterkaitan izin</h2><p class="cx-sec-note">Alur dari atas ke bawah; izin di luar tahap dan profil Anda dibuat pudar. Klik sebuah izin: yang ia butuhkan (hulu) dan yang ikut terhambat bila ia belum ada (hilir, garis merah) akan menyala.</p></header>
+      <div class="cx-legend" id="g-legend"></div>
+      <div class="cx-graphbox" id="graphbox" data-source="izin relasi" style="min-height:40rem"></div>
+    </article>
+    <article class="cx-card" id="card-impact">
+      <header><h2 class="cx-sec-title" id="imp-title">Simulasi dampak</h2><p class="cx-sec-note" id="imp-note">Pilih satu izin di peta untuk melihat rantai dampaknya.</p></header>
+      <div class="cx-impact" id="impact" data-source="izin relasi"></div>
+    </article>
+    <article class="cx-card" id="card-bind">
+      <header><h2 class="cx-sec-title">Pasangan yang saling mengikat</h2><p class="cx-sec-note">Dokumen ini harus identik isinya. Mengubah salah satu tanpa yang lain adalah penyebab umum RKAB dikembalikan.</p></header>
+      <div class="cx-bind" id="bind" data-source="relasi izin"></div>
+    </article>
+  </section>
+
+  <!-- RKAB -->
+  <section class="cx-page" id="rkab" role="tabpanel" aria-labelledby="tab-rkab" hidden>
+    <article class="cx-card" id="card-rkdoc">
+      <header><h2 class="cx-sec-title">Kelengkapan dokumen RKAB tahap operasi produksi</h2><p class="cx-sec-note">Isi pengajuan RKAB OP batubara menurut format Lampiran II dan aspek evaluasi Lampiran III Kepmen ESDM 341.K/MB.01/MEM.B/2025, disesuaikan dengan karakteristik kegiatan Anda. Centang dokumen yang sudah siap; status izin sumbernya bisa diubah langsung.</p></header>
+      <div id="rk-prog" data-source="dokumen_rkab"></div>
+      <h3 class="cx-sub">Kesiapan per aspek evaluasi</h3>
+      <div class="cx-aspek" id="rk-aspek" data-source="aspek_rkab dokumen_rkab"></div>
+      <h3 class="cx-sub">Dokumen per matrik</h3>
+      <div class="cx-tools">
+        <select class="cx-select" id="rk-aspek-f" aria-label="Aspek evaluasi"></select>
+        <select class="cx-select" id="rk-open" aria-label="Tampilkan"><option value="">Semua dokumen</option><option value="open">Belum siap saja</option></select>
+      </div>
+      <div class="cx-rkdocs" id="rk-docs" data-source="dokumen_rkab izin"></div>
+    </article>
+    <article class="cx-card" id="card-syarat">
+      <header><h2 class="cx-sec-title">Delapan syarat RKAB tahap operasi produksi</h2><p class="cx-sec-note">Permen ESDM 17/2025 Pasal 5 ayat (1) huruf b; format dan aspek evaluasinya dalam Kepmen ESDM 341.K/MB.01/MEM.B/2025. Klik nama izin untuk membuka checklist-nya.</p></header>
+      <div class="cx-syarat" id="syarat" data-source="syarat_rkab izin"></div>
+    </article>
+    <article class="cx-card" id="card-eval">
+      <header><h2 class="cx-sec-title">Alur evaluasi di e-RKAB</h2><p class="cx-sec-note">Setiap pengajuan RKAB tahunan (1 Oktober–15 November) diproses dengan tata waktu berikut.</p></header>
+      <div class="cx-steps" id="evalflow" data-source="kalender" style="min-height:8rem"></div>
+    </article>
+    <article class="cx-card" id="card-after">
+      <header><h2 class="cx-sec-title">RKAB disetujui ≠ boleh menambang</h2><p class="cx-sec-note">Pasal 9 ayat (1) dan Pasal 16 ayat (1) huruf d: pemegang RKAB tetap dilarang melakukan kegiatan fisik bila gerbang berikut belum selesai. Yang masih boleh hanya pemeliharaan, perawatan, serta pemantauan dan pengelolaan lingkungan.</p></header>
+      <div class="cx-gates" id="after" data-source="izin relasi"></div>
+    </article>
+  </section>
+
+  <!-- KALENDER -->
+  <section class="cx-page" id="kalender" role="tabpanel" aria-labelledby="tab-kalender" hidden>
+    <article class="cx-card" id="card-year">
+      <header><h2 class="cx-sec-title">Siklus kepatuhan tahunan</h2><p class="cx-sec-note">Tenggat yang berulang setiap tahun bagi pemegang IUP OP batubara.</p></header>
+      <div class="cx-year" id="year" data-source="kalender" style="min-height:9rem"></div>
+    </article>
+    <article class="cx-card" id="card-dl">
+      <header><h2 class="cx-sec-title">Tenggat yang dihitung sejak suatu peristiwa</h2><p class="cx-sec-note">Mulai berjalan saat izin terbit, dokumen disetujui, atau kejadian terjadi.</p></header>
+      <div class="cx-dl" id="dl" data-source="kalender"></div>
+    </article>
+  </section>
+
+  <!-- REGULASI -->
+  <section class="cx-page" id="regulasi" role="tabpanel" aria-labelledby="tab-regulasi" hidden>
+    <article class="cx-card" id="card-reg">
+      <header><h2 class="cx-sec-title">Peta regulasi</h2><p class="cx-sec-note">Status per 21 Oktober 2026. Klik nomor untuk membuka sumber bila tersedia.</p></header>
+      <div class="cx-reg-status" id="regstat" data-source="reg_status"></div>
+      <div class="cx-tablebox">
+        <table class="cx-table" id="tbl-reg" data-source="regulasi" data-row-key="id">
+          <thead><tr>
+            <th class="col-inst" data-field="jenis">Jenis</th>
+            <th data-field="nomor">Nomor</th>
+            <th data-field="tentang">Tentang</th>
+            <th data-field="status">Status</th>
+            <th class="col-masa" data-field="peran">Peran dalam compliance</th>
+          </tr></thead>
+          <tbody id="tb-reg"></tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <p class="cx-foot">Bahan edukasi dan alat bantu kontrol internal, bukan nasihat hukum. Ketentuan disarikan dari UU Minerba, PP 96/2021 beserta perubahannya, PP 28/2025, Permen ESDM 17/2025 jo 6/2026, Kepmen ESDM 341.K/2025, 344.K/2025 dan 365.K/2026, serta regulasi lingkungan, kehutanan, dan tata ruang terkait. Durasi timeline adalah batas waktu layanan pemerintah sejak dokumen lengkap, belum termasuk waktu penyusunan dokumen oleh perusahaan kecuali yang ditandai "Perusahaan". Selalu verifikasi ke JDIH dan instansi penerbit. Status, centang dokumen, dan durasi yang Anda ubah tersimpan di browser ini saja. <button class="cx-btn" type="button" id="cx-reset-saved" style="margin-left:6px">Hapus data tersimpan</button></p>
+</div>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="dash-shim.js"></script>
+<script src="app.js"></script>
+<script>
+  document.getElementById('cx-reset-saved').addEventListener('click', function () {
+    if (confirm('Hapus semua status, centang dokumen, durasi, dan pilihan profil yang tersimpan di browser ini?')) window.cxResetSaved();
+  });
+</script>
+</body>
+</html>
