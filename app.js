@@ -209,6 +209,10 @@
       return el('option', { value: t.id, text: `Tahap ${t.urut} · ${t.nama} (${n} izin & dokumen)` });
     }));
     stageSel.value = P.tahap;
+    const si = ts.findIndex((x) => x.id === P.tahap);
+    $('#stage-track').replaceChildren(
+      el('div', { class: 'cx-track' }, ...ts.map((x, i) => el('span', { class: i < si ? 'past' : i === si ? 'on' : '' }))),
+      el('div', { class: 'cx-track-lbl' }, ...ts.map((x, i) => el('span', { class: i === si ? 'on' : '', text: String(x.urut) }))));
     const t = ts.find((x) => x.id === P.tahap) || ts[0];
     desc.replaceChildren(el('span', { 'data-source': 'tahap', 'data-field': 'deskripsi', 'data-where': `id=${t.id}`, text: t.deskripsi }), ` Target: ${t.siap}.`);
   };
@@ -232,6 +236,10 @@
         o.catatan || '');
       return el('div', { class: `cx-q ${o.flags ? 'on' : ''}` }, el('label', { for: id, text: c.pertanyaan }), sel, help);
     }));
+    const act = cc.filter((c) => c.sel.flags);
+    $('#cond-sum').replaceChildren(...(act.length ? act.map((c) => el('span', { class: 'cx-chip kond', text: c.sel.label })) : [el('span', { class: 'cx-muted cx-small', text: 'Belum ada kondisi khusus — buka untuk menyesuaikan dengan lokasi Anda' })]));
+    const cb = $('#cond-box');
+    if (!cb.dataset.init) { cb.dataset.init = '1'; if (!(Array.isArray((dash.params() || {}).kondisi) && dash.params().kondisi.length)) cb.open = true; }
     const P = prof(); const w = $('#cond-warn');
     const msgs = [];
     if (P.flags.has('konservasi')) msgs.push('Hutan konservasi tidak dapat digunakan untuk pertambangan: keluarkan area tersebut dari rencana tambang, studi kelayakan, dan peta RKAB.');
@@ -286,21 +294,60 @@
       ', perusahaan perlu ', el('b', { text: fmtInt(need.length) }), ' izin & dokumen: ',
       el('b', { text: fmtInt(wajib.length) }), ' wajib untuk semua pemegang izin dan ', el('b', { text: fmtInt(kond.length) }), ' karena karakteristik kegiatan. ',
       open.length ? ['Bila pengajuan dimulai ', el('b', { text: fmtD(sc.t0) }), ', perusahaan diperkirakan ', t ? t.siap : 'siap', ' pada ', el('b', { text: fmtD(sc.ready) }), '.'] : 'Semua izin sudah bertanda lengkap.'].flat(2).filter((x) => x !== ''));
-    const tile = (lbl, val, sub, cls) => el('div', { class: 'cx-kpi' }, el('span', { class: 'lbl', text: lbl }), el('span', { class: 'val', style: cls ? `color:var(--color-${cls})` : null, text: val }), el('span', { class: 'sub', text: sub }));
-    kp.replaceChildren(...[
-      tile('Izin & dokumen dibutuhkan', fmtInt(need.length), `${wajib.length} wajib · ${kond.length} kondisional`),
-      tile('Sudah lengkap', `${fmtInt(done.length)}/${fmtInt(need.length)}`, 'menurut status yang Anda tandai', done.length === need.length && need.length ? 'ok' : null),
-      tile('Belum ada / proses', fmtInt(st('Belum ada') + st('Proses')), `${st('Belum dicek')} belum dicek`, st('Belum ada') ? 'bad' : null),
-      tile('Estimasi siap', open.length ? fmtD(sc.ready) : 'Siap', open.length ? `± ${d3.format('.1f')(months).replace('.', ',')} bulan dari mulai pengajuan` : 'tidak ada izin tertunda'),
-      physical(P.tahap) ? (() => { const rk = rkDocStats(); return tile('Dokumen RKAB siap', `${fmtInt(rk.ready)}/${fmtInt(rk.total)}`, 'dicentang di tab Prasyarat RKAB', rk.total && rk.ready === rk.total ? 'ok' : null); })() : null,
-      tile('Risiko pidana terbuka', fmtInt(pidana.size), 'jenis pelanggaran bila izin belum ada', pidana.size ? 'bad' : 'ok')].filter(Boolean));
+    // hero
+    const pctDone = need.length ? done.length / need.length : 0;
+    const R = 50, C = 2 * Math.PI * R;
+    const ring = sv('svg', { width: 118, height: 118, viewBox: '0 0 118 118' });
+    ring.append(sv('circle', { cx: 59, cy: 59, r: R, fill: 'none', 'stroke-width': 10, style: 'stroke:color-mix(in srgb,var(--color-bg) 18%,transparent)' }));
+    ring.append(sv('circle', { cx: 59, cy: 59, r: R, fill: 'none', 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-dasharray': `${Math.max(0.001, pctDone * C)} ${C}`, style: `stroke:${pctDone === 1 ? 'var(--color-ok)' : 'var(--color-bg)'}` }));
+    const rk = physical(P.tahap) ? rkDocStats() : null;
+    const stat = (l, v, x, cls) => el('div', { class: `cx-stat ${cls || ''}` }, el('span', { class: 'l', text: l }), el('span', { class: 'v', text: v }), el('span', { class: 'x', text: x }));
+    kp.replaceChildren(
+      el('div', { class: 'cx-hero-main' },
+        el('div', { class: 'cx-ring' }, ring, el('div', { class: 't' }, el('div', null, el('b', { text: `${Math.round(pctDone * 100)}%` }), el('span', { text: 'lengkap' })))),
+        el('div', { style: 'min-width:0' },
+          el('div', { class: 'k', text: open.length ? `Estimasi ${t ? t.siap : 'siap'}` : 'Status' }),
+          el('div', { class: 'd', text: open.length ? fmtD(sc.ready) : 'Siap dimulai' }),
+          el('div', { class: 's', text: open.length ? `± ${d3.format('.1f')(months).replace('.', ',')} bulan sejak mulai pengajuan ${fmtD(sc.t0)} · ${done.length} dari ${need.length} izin lengkap` : `Semua ${need.length} izin untuk tahap ini bertanda lengkap.` }))),
+      el('div', { class: 'cx-hero-stats' },
+        stat('Izin & dokumen dibutuhkan', fmtInt(need.length), `${wajib.length} wajib · ${kond.length} kondisional`),
+        stat('Belum ada / proses', fmtInt(st('Belum ada') + st('Proses')), `${st('Belum dicek')} belum dicek`, st('Belum ada') ? 'bad' : st('Proses') ? 'warn' : ''),
+        rk ? stat('Dokumen RKAB siap', `${fmtInt(rk.ready)}/${fmtInt(rk.total)}`, 'tab Dokumen RKAB', rk.total && rk.ready === rk.total ? 'ok' : '')
+          : stat('Sudah lengkap', `${fmtInt(done.length)}/${fmtInt(need.length)}`, 'menurut status Anda', done.length === need.length && need.length ? 'ok' : ''),
+        stat('Risiko pidana terbuka', fmtInt(pidana.size), 'jenis pelanggaran bila izin belum ada', pidana.size ? 'bad' : 'ok')));
+
+    // sticky status bar
+    $('#statusbar').replaceChildren(
+      el('span', null, 'Tahap ', el('b', { text: t ? `${t.urut} · ${t.nama}` : P.tahap })), el('span', { class: 'sep' }),
+      el('span', null, el('i', { class: 'dot', style: `background:${pctDone === 1 ? 'var(--color-ok)' : 'var(--color-fg)'}` }), el('b', { text: `${done.length}/${need.length}` }), ' lengkap'), el('span', { class: 'sep' }),
+      el('span', null, 'Estimasi siap ', el('b', { text: open.length ? fmtD(sc.ready) : 'sekarang' })), el('span', { class: 'sep' }),
+      el('span', null, el('i', { class: 'dot', style: `background:${pidana.size ? 'var(--color-bad)' : 'var(--color-ok)'}` }), el('b', { text: fmtInt(pidana.size) }), ' risiko pidana terbuka'));
+
+    // next steps: not done, all in-profile prerequisites done
+    const nb = $('#next'); nb.classList.remove('dash-skeleton', 'cx-fail');
+    const inSet = new Set(need.map((r) => r.id));
+    const nexts = open.filter((r) => r.durasi != null).filter((r) => m.parents.get(r.id).every((e) => !inSet.has(e.dari) || isDone(m.byId.get(e.dari))))
+      .sort((a, b) => (sc.crit.has(b.id) - sc.crit.has(a.id)) || ((sc.res.get(a.id) || {}).start || 0) - ((sc.res.get(b.id) || {}).start || 0) || a.fase.localeCompare(b.fase) || a.urut - b.urut)
+      .slice(0, 3);
+    nb.replaceChildren(...(nexts.length ? nexts.map((r, i) => {
+      const d = el('button', { class: 'cx-btn', type: 'button', text: 'Lihat detail' });
+      d.addEventListener('click', () => openIzin(r.id));
+      return el('div', { class: 'cx-nx', 'data-key': r.id },
+        el('span', { class: 'n', text: String(i + 1) }),
+        el('div', null, el('div', { class: 't', text: r.nama }),
+          el('div', { class: 'm', text: `${r.instansi}${r.durasi != null ? ` · ± ${fmtInt(durOf(r))} ${r.durasi_satuan}` : ''}` })),
+        el('div', { class: 'a' }, statusBtn(r), sc.crit.has(r.id) ? el('span', { class: 'cx-chip bad', text: 'Jalur kritis' }) : null, d));
+    }) : [el('p', { class: 'cx-ready ok', text: open.length ? 'Lengkapi prasyarat yang berstatus Proses terlebih dahulu.' : 'Tidak ada langkah tersisa untuk tahap ini.' })]));
 
     // need list grouped by lapis
     const box = $('#need');
     box.classList.remove('dash-skeleton', 'cx-fail');
     const groups = d3.groups(need.slice().sort((a, b) => a.fase.localeCompare(b.fase) || a.urut - b.urut), (r) => r.fase);
-    box.replaceChildren(...groups.map(([f, rs]) => el('div', { class: 'cx-need-grp' },
-      el('h3', null, el('span', { class: 'cx-dot', style: `background:${faseColor(f)}` }), rs[0].fase_nama, el('span', { class: 'cnt', text: `${rs.filter(isDone).length}/${rs.length} lengkap` })),
+    state.needOpen = state.needOpen || new Map();
+    box.replaceChildren(...groups.map(([f, rs]) => { const nd = rs.filter(isDone).length; const g = el('details', { class: 'cx-need-grp', open: (state.needOpen.has(f) ? state.needOpen.get(f) : nd < rs.length) ? true : null },
+      el('summary', null, el('span', { class: 'cx-dot', style: `background:${faseColor(f)}` }), el('span', { class: 'nm', text: rs[0].fase_nama }),
+        el('span', { class: 'bar' }, el('i', { style: `width:${(nd / rs.length) * 100}%` })),
+        el('span', { class: 'cnt' }, `${nd}/${rs.length} `, el('span', { class: 'chev', text: '›' }))),
       ...rs.map((r) => {
         const nm = el('button', { class: 'cx-link', type: 'button', text: r.nama });
         nm.addEventListener('click', () => openIzin(r.id));
@@ -317,7 +364,7 @@
               r.sifat === 'Kondisional' ? el('span', { class: 'cx-chip kond', text: condLabel(r) }) : null),
             el('div', { class: 'dur', text: r.durasi != null ? `${r.instansi} · ± ${fmtInt(durOf(r))} ${r.durasi_satuan} (${r.durasi_jenis.toLowerCase()})` : `${r.instansi} · kewajiban berulang` })),
           rk);
-      }))));
+      })); g.addEventListener('toggle', () => state.needOpen.set(f, g.open)); return g; }));
 
     // risks
     const rb = $('#risk'); rb.classList.remove('dash-skeleton', 'cx-fail');
